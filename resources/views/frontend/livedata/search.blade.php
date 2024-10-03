@@ -9,6 +9,12 @@
 </head>
 <body>
     @include('frontend.header')
+    @if(session('message'))
+        <div class="alert alert-warning">
+            {{ session('message') }}
+        </div>
+    @endif
+
     @php
         $desc = trim($desc, '"');
         $base_search = ($hs_code === null) ? $desc : $hs_code;
@@ -178,7 +184,9 @@
     @if($country == "US")
         @include('frontend.livedata.US.USTable')  
     @elseif($country == 'Austria')
-        @include('frontend.livedata.austriaTable')
+        @include('frontend.livedata.austria.austriaTable')
+    @elseif($country == 'Ecuador')
+        @include('frontend.livedata.Ecuador.EcTable')
     @endif
    
 

@@ -18,7 +18,7 @@
                 @php
                     $args = $args ?? [];
                     $arg = $arg ?? [];
-                    //dd($filterby,$filterby1,$filterby2,$args,$searchDetails1,$arg);
+                    // dd($filterby,$filterby1,$args,$searchDetails1,$arg);
                     $searchDetailsParts = explode(',', $searchDetails1);
                     $all_numeric = true;
         
@@ -595,8 +595,9 @@
         @include('frontend.livedata.US.USTableone')  
     @elseif($search_country == 'Austria')
         @include('frontend.livedata.austriaTable')
+    @elseif($search_country == 'Ecuador')
+        @include('frontend.livedata.Ecuador.EcTableone')
     @endif
-   
 
     @include('frontend.tab_inc')
     @include('frontend.footer')

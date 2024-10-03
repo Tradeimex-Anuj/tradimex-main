@@ -91,12 +91,12 @@
                             <!--<option class="form-control" value="Mexico">Mexico</option>-->
                             <!--<option class="form-control" value="Panama">Panama</option>-->
                             <option class="form-control" value="US">US</option>
-                            <!--<option class="form-control" value="Argentina">Argentina</option>-->
+                            <option class="form-control" value="Argentina">Argentina</option>
                             <!--<option class="form-control" value="Bolivia">Bolivia</option>-->
                             <!--<option class="form-control" value="Brazil">Brazil</option>-->
                             <!--<option class="form-control" value="Chile">Chile</option>-->
                             <!--<option class="form-control" value="Colombia">Colombia</option>-->
-                            <!--<option class="form-control" value="Ecuador">Ecuador</option>-->
+                            <option class="form-control" value="Ecuador">Ecuador</option>
                             <!--<option class="form-control" value="Guyana">Guyana</option>-->
                             <!--<option class="form-control" value="Paraguay">Paraguay</option>-->
                             <!--<option class="form-control" value="Peru">Peru</option>-->

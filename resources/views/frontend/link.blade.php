@@ -16,13 +16,13 @@
 <script src="https://www.google.com/recaptcha/api.js?render=6LeMDa0pAAAAADpczSGmVwa78vlXEMlRW10UNaQa"></script>
 
 
-<style>
+{{-- <style>
     * {
         user-select: none;
         -webkit-user-select: none;/*IE,etc*/
         -moz-user-select: none; /*Mozzila Firefox*/
     }
-</style>
+</style> --}}
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10946414799"></script>

@@ -55,7 +55,7 @@ class SearchLiveDataController extends Controller
         $search_country = $request->input('country');
         $description = $base_desc ?: '-';
         $hs_code = $request->input('hs_code') ?: '-';
-       
+        // dd($search_country);
          if ($type === 'data'){
                 if ($hs_code === '-') {
                     $url = route('search.data', ['search_country'=>$search_country,'type' => $type, 'role' => $role, 'description' => $description]);
@@ -85,12 +85,31 @@ class SearchLiveDataController extends Controller
             } elseif ($type == 'export') {
                 return DB::connection($secondDbConnection)->table('EXP_AMERICA_BL_SEA');
             }
-        }else if($search_country = 'austria'){
+        }elseif($search_country == 'Austria'){
             if ($type == 'import') {
                 return DB::connection($secondDbConnection)->table('austria');
             } elseif ($type == 'export') {
                 return DB::connection($secondDbConnection)->table('austria');
             }
+        }elseif ($search_country == 'Ecuador') {
+            # code...           
+            if ($type == 'import') {
+                # code...
+                return redirect()->back()->with('message','Currently not found');
+            } elseif($type == 'export') {
+                # code...
+                return DB::connection($secondDbConnection)->table('ECUADOR_Export');
+            }
+            
+        }elseif ($search_country == 'Argentina') {
+            # code...           
+            if ($type == 'import') {
+                # code...
+            } elseif($type == 'export') {
+                # code...
+                return DB::connection($secondDbConnection)->table('argentina_export');
+            }
+            
         }
         
         return null; // Return null if no table is matched
@@ -120,7 +139,7 @@ class SearchLiveDataController extends Controller
         if ($result->isEmpty()) {
             return redirect()->back()->with('error', 'No results found. Contact us for more details.');
         }
-
+    //    dd($result);
         return view('frontend.livedata.search', [
             'result' => $result,
              'country' => $search_country,
@@ -725,7 +744,7 @@ class SearchLiveDataController extends Controller
                             ->orderBy(DB::raw('LENGTH(HS_CODE)'), 'asc')  // Sort by the length of HS_CODE first
                             ->orderBy('HS_CODE', 'asc')
                             ->whereNotNull('HS_CODE')
-                            ->whereNotNull('US_EXPORTER_NAME')
+                            // ->whereNotNull('US_EXPORTER_NAME')
                             ->limit(10)
                             ->get();
                             
@@ -770,6 +789,7 @@ class SearchLiveDataController extends Controller
                     return view('frontend.livedata.searchfilter-one', [
                         'search_country' => $search_country,
                         'result' => $results,
+                        'exportresult' => $results,
                         'desc'   => $filterdata,
                         'type'   => $type,
                         'role'   => $role,
@@ -1036,7 +1056,7 @@ class SearchLiveDataController extends Controller
                     // ->whereNotNull('US_EXPORTER_NAME')
                     ->where(function($query) use ($filterdata) {
                         $query->where('HS_Code', 'like', '%' . $filterdata . '%')
-                              ->orWhere('ORIGIN_COUNTRY', 'like', '%' . $filterdata . '%')
+                              ->orWhere('DESTINATION_COUNTRY', 'like', '%' . $filterdata . '%')
                               ->orWhere('Unloading_port', 'like', '%' . $filterdata . '%');
                     })
                     ->whereRaw('LENGTH(HS_CODE) <= 12')
