@@ -1,3 +1,17 @@
+<style>
+    .tree-view {
+        list-style-type: none;
+        padding-left: 20px;
+    }
+    .tree-view li {
+        margin: 5px 0;
+        cursor: pointer;
+    }
+    .toggle {
+        display: none;
+    }
+</style>
+
 @if ($role =='import')
     <section class="container-fluid bg-bluish">
         <div class="pdt-2 pdb-5">
@@ -146,6 +160,53 @@
                 </li>
             </ul>
         </nav>
+        {{-- filter --}}
+        <section class="container-fluid bg-bluish">
+            <div class="container pdt-2 pdb-2">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        <div class="filter-card">
+                            <div class="container mt-5">
+                                <h2>HS Code Tree View</h2>
+                                <ul class="tree-view">
+                                    <li>
+                                        <span class="toggle-btn">+</span> {{$hs_code}}
+                                        <ul class="toggle">
+                                            @php
+                                                $i = 0;
+                                            @endphp
+                                            @foreach ($result as $SearchResult)
+                                                <li>
+                                                    {{ $SearchResult->HS_CODE }}
+                                                </li>
+                                                @if (++$i >= 10)
+                                                    @break
+                                                @endif
+                                            @endforeach                                        
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <span class="toggle-btn">+</span> 02 - Vegetables
+                                        <ul class="toggle">
+                                            <li>0201 - Potatoes</li>
+                                            <li>0202 - Tomatoes</li>
+                                            <li>
+                                                <span class="toggle-btn">+</span> 0203 - Onions
+                                                <ul class="toggle">
+                                                    <li>0203.01 - Fresh</li>
+                                                    <li>0203.02 - Dried</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
     </section>
 @elseif ($role == 'export')
     <section class="container-fluid bg-bluish">
@@ -296,3 +357,12 @@
         </div>
     </section>
 @endif
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.toggle-btn').click(function() {
+            $(this).siblings('ul').toggle(); // Toggle the nested ul
+            $(this).text($(this).text() === '+' ? '-' : '+'); // Change the toggle text
+        });
+    });
+</script>

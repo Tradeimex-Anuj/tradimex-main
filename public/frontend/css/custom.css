@@ -1,3 +1,4 @@
+
 @import url(https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap);
 
 .blog_card_content a,
@@ -18,9 +19,9 @@
 }
 
 .select2-container .select2-selection--single {
-    height: 40px !important;   
+    height: 40px !important;
 }
-.select2-container .select2-selection--single .select2-selection__rendered{
+.select2-container .select2-selection--single .select2-selection__rendered {
     padding-top: 4px;
 }
 .select2-container--default .select2-selection--single .select2-selection__arrow {
@@ -36,7 +37,7 @@
 [type=reset]:not(:disabled),
 [type=submit]:not(:disabled),
 button:not(:disabled) {
-    cursor: pointer
+    cursor: pointer;
 }
 
 #snackbar,
@@ -1284,8 +1285,6 @@ table tbody tr th a:hover {
     display: inline-block;
     position: relative;
     list-style: none;
-    font-weight: 500;
-    font-size: 14px
 }
 
 .text-hover:after,
@@ -2275,16 +2274,47 @@ table tbody tr th a:hover {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 7;
 }
-
+.data-mobile-card {
+    padding: 1.75rem;
+    background-color: white;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 7px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 7px -1px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 7px -1px rgba(0,0,0,0.75);
+}
+.filter-card {
+    background-color: white;
+    border: 1px #cfe2ff;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    width: auto;
+    -webkit-box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.75);
+    box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.75);
+}
+.filter-card .head {
+    background-color: #00506E;
+    padding: 0.75rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+.filter-card .filter-list {
+    overflow: auto;
+    max-height: 19rem;
+    padding: 12px;
+}
 
 
 @media (max-width: 380px) {
     .modal-dialog {
         position: relative;
         width: auto;
-        margin: 1.5rem !important; 
+        margin: 1.5rem !important;
         pointer-events: none;
-    }   
+    }
 }
 
 @media screen and (max-width:280px) {
@@ -2357,7 +2387,7 @@ table tbody tr th a:hover {
 }
 
 @media (max-width:576px) {
-    
+
     .datacard {
         margin-bottom: 2rem;
     }
@@ -2369,9 +2399,8 @@ table tbody tr th a:hover {
         border-top-style: solid;
         border-bottom-style: solid;
     }
-    
-    
-    
+
+
     .mobile-filter {
         flex-direction: column;
     }
@@ -2722,7 +2751,7 @@ table tbody tr th a:hover {
     }
 }
 
-@media screen and (min-device-width: 1245px) and (max-device-width: 1250px) { 
+@media screen and (min-device-width: 1245px) and (max-device-width: 1250px) {
     .PartnersHeroGraphic {
         left: 12% !important;
     }

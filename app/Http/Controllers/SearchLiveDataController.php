@@ -85,6 +85,12 @@ class SearchLiveDataController extends Controller
             } elseif ($type == 'export') {
                 return DB::connection($secondDbConnection)->table('EXP_AMERICA_BL_SEA');
             }
+        }else if($search_country = 'austria'){
+            if ($type == 'import') {
+                return DB::connection($secondDbConnection)->table('austria');
+            } elseif ($type == 'export') {
+                return DB::connection($secondDbConnection)->table('austria');
+            }
         }
         
         return null; // Return null if no table is matched
@@ -125,7 +131,7 @@ class SearchLiveDataController extends Controller
             'base_desc' => $description,
             'base_hs_code' => $hs_code,
             'role' => $role,
-            'type' => $type
+            'type' => $type,
         ]);
     }
 
@@ -148,7 +154,7 @@ class SearchLiveDataController extends Controller
                 }
             })
             ->orderByRaw('LENGTH(HS_CODE), HS_CODE') // Sort by HS_CODE length first, then HS_CODE
-            ->limit(5000)
+            // ->limit(5000)
             ->get();
 
         return $query;
