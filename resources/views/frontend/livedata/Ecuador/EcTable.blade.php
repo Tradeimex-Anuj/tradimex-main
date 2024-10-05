@@ -52,7 +52,7 @@
                         $Dresult = $result;
                         $iteration = 0;
                     @endphp
-                            
+
                     @if(isset($Dresult) && $Dresult->count() > 0)
                         @foreach ($Dresult as $Dresult)
                             @php
@@ -128,7 +128,7 @@
                                 <td class="fw-normal text-gray p-3">
                                     <a>
                                         Importer Name
-                                    </a> 
+                                    </a>
                                 </td>
                             </tr>
                             @if($iteration == 10)
@@ -182,7 +182,7 @@
                                                 @if (++$i >= 10)
                                                     @break
                                                 @endif
-                                            @endforeach                                        
+                                            @endforeach
                                         </ul>
                                     </li>
                                     <li>
@@ -256,7 +256,7 @@
                                 $res_hs_code = $Dresult->HS_CODE;
                                 $destination_country = $Dresult->DESTINATION_COUNTRY;
                                 $unloading_port  = $Dresult->UNLOADING_PORT;
-                                
+
                                 // Hs code Url
                                 if ($hs_code) {
                                     # code...

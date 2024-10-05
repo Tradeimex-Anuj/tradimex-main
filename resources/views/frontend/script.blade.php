@@ -1,5 +1,5 @@
 <script src="https://www.google.com/recaptcha/api.js"></script>
-    
+
 <script>
 //   function onSubmit(token) {
 //      document.getElementById("contactform").submit();
@@ -36,12 +36,40 @@
 //   function onSubmit(token) {
 //      document.getElementById("contact-form").submit();
 //   }
-// </script> 
+// </script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="//code.tidio.co/sdzqyzkqyjktbhjlcr0v8xbgipvxwtc9.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js" crossorigin="anonymous"></script>
-    
+
+    {{-- <script>
+        $(document).ready(function() {
+            $('.toggle-btn').click(function() {
+                $(this).siblings('ul').toggle(); // Toggle the nested ul
+                $(this).text($(this).text() === '+' ? '-' : '+'); // Change the toggle text
+            });
+        });
+    </script> --}}
+
+    <script>
+        // Toggle the display of child nodes
+        document.querySelectorAll('.tree-toggle').forEach(toggle => {
+            toggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                const nextUl = this.nextElementSibling;
+                if (nextUl) {
+                    nextUl.classList.toggle('d-none');
+                }
+                this.classList.toggle('collapsed');
+            });
+        });
+
+        // Hide all nested lists initially
+        document.querySelectorAll('.nested').forEach(ul => {
+            ul.classList.add('d-none');
+        });
+    </script>
+
     <script>
         function format(item, state) {
         if (!item.id) {
@@ -75,14 +103,14 @@
             });
         });
     </script>
-   
+
 
     <!-- Google Tag Manager (noscript) -->
     <noscript>
         <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NBN2JCV" height="0" width="0" style="display:none;visibility:hidden"></iframe>
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
             if (!localStorage.getItem('modalShown')) {
@@ -93,13 +121,13 @@
                 }, 45000); // 45000 milliseconds = 45 seconds
             }
         });
-    
+
         function handleFormSubmit() {
             var myModal = bootstrap.Modal.getInstance(document.getElementById('exampleModal-1'));
             myModal.hide();
             return true; // Continue with the form submission
         }
-    
+
         function myStopFunction() {
             var myModal = bootstrap.Modal.getInstance(document.getElementById('exampleModal-1'));
             myModal.hide();
@@ -112,17 +140,17 @@
         function validateForm() {
             // Get the value of the message field
             var message = document.getElementById('txt').value;
-            
+
             // Regular expression to match URLs
             var urlRegex = /(https?:\/\/[^\s]+)/g;
-            
+
             // Check if the message contains a URL
             if (urlRegex.test(message)) {
                 // Alert the user and prevent form submission
                 alert('Please do not include URLs in the message.');
                 return false;
             }
-            
+
             // If the message does not contain a URL, allow form submission
             return true;
         }
@@ -130,17 +158,17 @@
         function validateForm() {
             // Get the value of the message field
             var message = document.getElementById('txt').value;
-            
+
             // Regular expression to match URLs
             var urlRegex = /(https?:\/\/[^\s]+)/g;
-            
+
             // Check if the message contains a URL
             if (urlRegex.test(message)) {
                 // Alert the user and prevent form submission
                 alert('Please do not include URLs in the message.');
                 return false;
             }
-            
+
             // If the message does not contain a URL, allow form submission
             return true;
         }
@@ -153,27 +181,27 @@
             var nameInput = document.getElementsByName('name')[0].value;
             var companyInput = document.getElementsByName('company')[0].value;
             var numberInput = document.getElementsByName('number')[0].value;
-            
+
             console.log('message',message);
-            
+
             // Regular expression to match URLs
             var urlRegex = /(https?:\/\/[^\s]+)/g;
              // Regular expression to check for links
-         
-            
+
+
             // Check if the message contains a URL
             if (urlRegex.test(message)|| urlRegex.test(nameInput) || urlRegex.test(companyInput) || urlRegex.test(numberInput)) {
                 // Alert the user and prevent form submission
                 alert('Please do not include URLs in Form.');
                 return false;
             }
-            
+
             // If the message does not contain a URL, allow form submission
             return true;
         }
     </script>
 
-    
+
     <script>
        function refreshCaptcha() {
             var xhr = new XMLHttpRequest();
@@ -204,7 +232,7 @@
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-    
+
     <script src="public/frontend/js/main.js"></script>
 
     <script type="application/ld+json">
@@ -212,7 +240,7 @@
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "TradeImeX info solution Pvt Ltd",
-            
+
                     "url": "https://www.tradeimex.in/",
             "contactPoint": {
                 "@type": "ContactPoint",

@@ -22,7 +22,7 @@ class SearchLiveDataController extends Controller
         $result = $query->get();
         // dd($result);
         return view(
-            'frontend.importdata', 
+            'frontend.importdata',
             [
                 'results' => $result
             ]
@@ -39,9 +39,9 @@ class SearchLiveDataController extends Controller
                 ->where($column, '!=', 'N/A');
             }
             $result = $query->get();
-            
+
            return view(
-                'frontend.exportdata', 
+                'frontend.exportdata',
                 [
                     'results' => $result
                 ]
@@ -55,6 +55,7 @@ class SearchLiveDataController extends Controller
         $search_country = $request->input('country');
         $description = $base_desc ?: '-';
         $hs_code = $request->input('hs_code') ?: '-';
+        //dd($type);
         // dd($search_country);
          if ($type === 'data'){
                 if ($hs_code === '-') {
@@ -63,36 +64,38 @@ class SearchLiveDataController extends Controller
                     $url = route('search.data', ['search_country'=>$search_country,'type' => $type, 'role' => $role, 'description' => $description, 'hs_code' => $hs_code]);
                 }
           } elseif ($type === 'company') {
-              
+                // dd($search_country, $type);
                 if ($hs_code === '-') {
-                    $url = route('search.company', ['type' => $type, 'role' => $role, 'description' => $description]);
+                    $url = route('search.company', ['type' => $type, 'role' => $role, 'description' => $description, 'country' => $search_country]);
                 } else {
-                    $url = route('search.company', ['type' => $type, 'role' => $role, 'description' => $description, 'hs_code' => $hs_code]);
+                    $url = route('search.company', ['type' => $type, 'role' => $role, 'description' => $description, 'hs_code' => $hs_code, 'country' => $search_country]);
                 }
           } else {
               abort(404);
           }
         return redirect($url);
-        
+
     }
+
     private function table($search_country, $type)
     {
         $secondDbConnection = 'mysql2'; // The name of your second database connection
-        
+
+        // dd($search_country, $type);
         if ($search_country == 'US') {
             if ($type == 'import') {
                 return DB::connection($secondDbConnection)->table('IMP_AMERICA_BL_SEA');
             } elseif ($type == 'export') {
                 return DB::connection($secondDbConnection)->table('EXP_AMERICA_BL_SEA');
             }
-        }elseif($search_country == 'Austria'){
+        }elseif($search_country == 'Austria') {
             if ($type == 'import') {
                 return DB::connection($secondDbConnection)->table('austria');
             } elseif ($type == 'export') {
                 return DB::connection($secondDbConnection)->table('austria');
             }
         }elseif ($search_country == 'Ecuador') {
-            # code...           
+            # code...
             if ($type == 'import') {
                 # code...
                 return redirect()->back()->with('message','Currently not found');
@@ -100,18 +103,18 @@ class SearchLiveDataController extends Controller
                 # code...
                 return DB::connection($secondDbConnection)->table('ECUADOR_Export');
             }
-            
-        }elseif ($search_country == 'Argentina') {
-            # code...           
+
+        } elseif ($search_country == 'Argentina') {
+            # code...
             if ($type == 'import') {
                 # code...
+                return DB::connection($secondDbConnection)->table('argentina_export');
             } elseif($type == 'export') {
                 # code...
                 return DB::connection($secondDbConnection)->table('argentina_export');
             }
-            
         }
-        
+
         return null; // Return null if no table is matched
     }
 
@@ -121,16 +124,19 @@ class SearchLiveDataController extends Controller
         $description = str_replace('-', ' ', $description);
         $hs_code = $hs_code ? $hs_code : null; // Ensure $hs_code is null if not provided
 
+        //dd($search_country);
         // Get the appropriate table based on country and role
         $table = $this->table($search_country, $role);
         if (!$table) {
             return redirect()->back()->with('error', 'Invalid search country or role.');
         }
 
+        //dd($table);
         // Perform data search
         if ($type === 'data') {
             $result = $this->searchData($table, $description, $hs_code);
         } elseif ($type === 'company') {
+            // dd('In company');
             $result = $this->searchCompany($table, $description, $hs_code);
         } else {
             return redirect()->back()->with('error', 'Invalid search type.');
@@ -139,10 +145,33 @@ class SearchLiveDataController extends Controller
         if ($result->isEmpty()) {
             return redirect()->back()->with('error', 'No results found. Contact us for more details.');
         }
-    //    dd($result);
+
+        // Structure the data for tree view
+        // $groupedData = [];
+
+        // foreach ($result as $result) {
+        //     $twoDigitHS = substr($result->HS_CODE, 0, 2);
+        //     $sixDigitHS = substr($result->HS_CODE, 0, 6);
+        //     $eightDigitHS = $result->HS_CODE;
+
+        //     // Create two-digit group
+        //     if (!isset($groupedData[$twoDigitHS])) {
+        //         $groupedData[$twoDigitHS] = [];
+        //     }
+
+        //     // Create six-digit group
+        //     if (!isset($groupedData[$twoDigitHS][$sixDigitHS])) {
+        //         $groupedData[$twoDigitHS][$sixDigitHS] = [];
+        //     }
+
+        //     // Add eight-digit code
+        //     $groupedData[$twoDigitHS][$sixDigitHS][] = $eightDigitHS;
+        // }
+
+        //dd($result);
         return view('frontend.livedata.search', [
             'result' => $result,
-             'country' => $search_country,
+            'country' => $search_country,
             'mobile_result' => $result,
             'exportresult' => $result,
             'hs_code' => $hs_code,
@@ -151,12 +180,14 @@ class SearchLiveDataController extends Controller
             'base_hs_code' => $hs_code,
             'role' => $role,
             'type' => $type,
+            //'groupedData' => $groupedData, Pass the structured data for filter hs code
         ]);
     }
 
     // Search 'data' type
     private function searchData($table, $description, $hs_code)
     {
+        //dd($description);
         $query = $table->select('*')
             ->whereNotNull('HS_CODE')
             ->where(function ($q) use ($description, $hs_code) {
@@ -175,34 +206,35 @@ class SearchLiveDataController extends Controller
             ->orderByRaw('LENGTH(HS_CODE), HS_CODE') // Sort by HS_CODE length first, then HS_CODE
             // ->limit(5000)
             ->get();
-
         return $query;
     }
 
     // Search 'company' type
     private function searchCompany($table, $description, $hs_code)
     {
+        //dd($description);
         $query = $table->select('*')
-            ->whereNotNull('HS_CODE')
-            ->where('US_IMPORTER_NAME', '!=', 'N/A')
-            ->where(function ($q) use ($description, $hs_code) {
-                if ($hs_code) {
-                    $q->where('HS_CODE', 'like', $hs_code . '%')
-                      ->whereRaw('LENGTH(HS_CODE) <= 12');
-                }
-                if ($description && $description !== ' ') {
-                    $description = '"' . $description . '"';
-                    $q->where(function ($q) use ($description) {
-                        $q->where('PRODUCT_DESCRIPTION', 'like', '%' . $description . '%')
-                          ->orWhereRaw("MATCH(PRODUCT_DESCRIPTION) AGAINST(? IN BOOLEAN MODE)", [$description]);
-                    });
-                }
-            })
-            ->limit(12)
-            ->get();
+        ->whereNotNull('HS_CODE')
+        ->where('US_IMPORTER_NAME', '!=', 'N/A')
+        ->where(function ($q) use ($description, $hs_code) {
+            if ($hs_code) {
+                $q->where('HS_CODE', 'like', $hs_code . '%')
+                    ->whereRaw('LENGTH(HS_CODE) <= 12');
+            }
+            if ($description && $description !== ' ') {
+                $description = '"' . $description . '"';
+                $q->where(function ($q) use ($description) {
+                    $q->where('PRODUCT_DESCRIPTION', 'like', '%' . $description . '%')
+                        ->orWhereRaw("MATCH(PRODUCT_DESCRIPTION) AGAINST(? IN BOOLEAN MODE)", [$description]);
+                });
+            }
+        })
+        ->limit(12)
+        ->get();
 
         return $query;
     }
+
     // Search Filter
     public function searchFilter()
     {
@@ -225,11 +257,11 @@ class SearchLiveDataController extends Controller
                     $results =$table
                         ->select('*')
                         ->where('HS_CODE', 'like', $filterdata.'%') // Use 'like' operator for pattern matching
-                        ->whereRaw('LENGTH(HS_CODE) <= 12') 
+                        ->whereRaw('LENGTH(HS_CODE) <= 12')
                         ->whereNotNull('HS_CODE')
                         ->limit(10)
                         ->get();
-                        
+
                     //dd($results, $filterdata);
                     }
                }else{
@@ -243,8 +275,8 @@ class SearchLiveDataController extends Controller
                             ->limit(10)
                             ->get();
                         $results = $exportresults;
-                    } 
-                  
+                    }
+
                }
             if ($results->isEmpty()) {
                  return redirect()->back()->with('error', 'Searched Data Not Found For More Details Contact us.');
@@ -282,36 +314,36 @@ class SearchLiveDataController extends Controller
         if ($role == 'import') {
             $values = explode(',', $base_search);
             $all_numeric = true;
-            
+
             foreach ($values as $value) {
                 if (!is_numeric($value)) {
                     $all_numeric = false;
                     break;
                 }
             }
-            
+
             if ($all_numeric){
                 $hs_codedetails = $base_search;
                 switch ($filterby) {
                     case 'hs_code':
-                       
+
                         $results = $table
                             ->select('*')
                             ->where('HS_CODE', 'like', $hs_codedetails .'%')
-                            ->whereRaw('LENGTH(HS_CODE) <= 12') 
+                            ->whereRaw('LENGTH(HS_CODE) <= 12')
                             ->where('HS_CODE',  $filterdata )
                             ->whereNotNull('HS_CODE')
                             ->whereNotNull('US_IMPORTER_NAME')
                             ->limit(10)
                             ->get();
-                          
+
                         break;
                     case 'country':
                         //dd('this country Block');
                         $results = $table
                             ->select('*')
                             ->where('HS_CODE', 'like', $hs_codedetails .'%')
-                            ->whereRaw('LENGTH(HS_CODE) <= 12') 
+                            ->whereRaw('LENGTH(HS_CODE) <= 12')
                             ->where('ORIGIN_COUNTRY', 'like', $filterdata . '%')
                             ->whereNotNull('HS_CODE')
                             ->whereNotNull('US_IMPORTER_NAME')
@@ -319,11 +351,11 @@ class SearchLiveDataController extends Controller
                             ->get();
                         break;
                     case 'unloading_port':
-                      
+
                         $results = $table
                             ->select('*')
                             ->where('HS_CODE', 'like', $hs_codedetails .'%')
-                            ->whereRaw('LENGTH(HS_CODE) <= 12') 
+                            ->whereRaw('LENGTH(HS_CODE) <= 12')
                             ->where('UNLOADING_PORT', 'like', $filterdata . '%')
                             ->whereNotNull('HS_CODE')
                             ->whereNotNull('US_IMPORTER_NAME')
@@ -334,7 +366,7 @@ class SearchLiveDataController extends Controller
                         $results = collect();
                 }
             } else {
-        
+
                 $descdetails = $base_search;
                 switch ($filterby) {
                     case 'hs_code':
@@ -342,19 +374,19 @@ class SearchLiveDataController extends Controller
                             ->select('*')
                             ->where('PRODUCT_DESCRIPTION', 'like', '%' . $descdetails .'%')
                             ->where('HS_CODE', 'like', $filterdata . '%')
-                             ->whereRaw('LENGTH(HS_CODE) <= 12') 
+                             ->whereRaw('LENGTH(HS_CODE) <= 12')
                             ->whereNotNull('HS_CODE')
                             ->whereNotNull('US_IMPORTER_NAME')
                             ->limit(10)
                             ->get();
                         break;
                     case 'country':
-                    
+
                         $results = $table
                             ->select('*')
                             ->where('ORIGIN_COUNTRY', 'like', $filterdata . '%')
                             ->where('PRODUCT_DESCRIPTION', 'like', '%' . $descdetails .'%')
-                             ->whereRaw('LENGTH(HS_CODE) <= 12') 
+                             ->whereRaw('LENGTH(HS_CODE) <= 12')
                             ->whereNotNull('HS_CODE')
                             ->whereNotNull('US_IMPORTER_NAME')
                             ->limit(10)
@@ -365,7 +397,7 @@ class SearchLiveDataController extends Controller
                             ->select('*')
                             ->where('PRODUCT_DESCRIPTION', 'like', '%' . $descdetails .'%')
                             ->where('UNLOADING_PORT', 'like', $filterdata . '%')
-                             ->whereRaw('LENGTH(HS_CODE) <= 12') 
+                             ->whereRaw('LENGTH(HS_CODE) <= 12')
                             ->whereNotNull('HS_CODE')
                             ->whereNotNull('US_IMPORTER_NAME')
                             ->limit(10)
@@ -397,14 +429,14 @@ class SearchLiveDataController extends Controller
         } else {
             $values = explode(',', $base_search);
             $all_numeric = true;
-            
+
             foreach ($values as $value) {
                 if (!is_numeric($value)) {
                     $all_numeric = false;
                     break;
                 }
             }
-            
+
             if ($all_numeric){
                 $hs_codedetails = $base_search;
                 switch ($filterby) {
@@ -416,7 +448,7 @@ class SearchLiveDataController extends Controller
                             ->orWhere('HS_CODE', '=', $hs_codedetails)
                             ->limit(10)
                             ->get();
-                            
+
                         break;
                     case 'country':
                         $exportresults = $table
@@ -443,19 +475,19 @@ class SearchLiveDataController extends Controller
                 $descdetails = $base_search;
                 switch ($filterby) {
                     case 'hs_code':
-                        
+
                         $exportresults = $table
-                      
+
                             ->select('*')
                             ->where('HS_CODE', 'like', '%' . $filterdata . '%')
                             ->whereRaw('LENGTH(HS_CODE) <= 12')
                             ->where('PRODUCT_DESCRIPTION', 'like', '%' . $descdetails .'%')
                             ->limit(10)
                             ->get();
-                      
+
                         break;
                     case 'country':
-                        
+
                         $exportresults = $table
                             ->select('*')
                             ->where('DESTINATION_COUNTRY', 'like', '%' . $filterdata . '%')
@@ -480,7 +512,7 @@ class SearchLiveDataController extends Controller
             if ($exportresults->isEmpty()) {
                  return redirect()->back()->with('error', 'Searched Data Not Found For More Details Contact us.');
             }
-            
+
              return view('frontend.livedata.searchfilter', [
                 'country' => $search_country,
                 'exportresults' => $exportresults,
@@ -566,7 +598,7 @@ class SearchLiveDataController extends Controller
                             ->orderBy('HS_CODE', 'asc')
                             ->whereNotNull('HS_CODE')
                             ->limit(10)
-                            ->get(); 
+                            ->get();
                         }
 
                     return view('frontend.livedata.searchfilter-one', [
@@ -584,7 +616,7 @@ class SearchLiveDataController extends Controller
                         'filterdata' => $filterdata,
                         'filterdata1' => $filterdata1,
                         'args' => $args
-                        
+
                         ]);
                 }else{
                         if($filterby1 == 'hs_code'){
@@ -604,7 +636,7 @@ class SearchLiveDataController extends Controller
                             ->whereNotNull('US_EXPORTER_NAME')
                             ->limit(10)
                             ->get();
-                            
+
                             // dd($results);
                         }else if($filterby1 == 'country'){
 
@@ -638,7 +670,7 @@ class SearchLiveDataController extends Controller
                             ->orderBy('HS_CODE', 'asc')
                             ->whereNotNull('HS_CODE')
                             ->limit(10)
-                            ->get(); 
+                            ->get();
                         }
 
                     return view('frontend.livedata.searchfilter-one', [
@@ -657,11 +689,11 @@ class SearchLiveDataController extends Controller
                         'args' => $args
                         ]);
                 }
-            }else{                        
+            }else{
                 if ($role=='import') {
-                        
+
                         if($filterby1 == 'hs_code'){
-                            
+
                                 $results = $table
                             ->select('*')
                             ->where('HS_CODE', 'LIKE', '%' . $filterdata1 . '%')
@@ -679,7 +711,7 @@ class SearchLiveDataController extends Controller
                             ->limit(10)
                             ->get();
                         }else if($filterby1 == 'country'){
-                                
+
                                 $results = $table
                                 ->select('*')
                                 ->where('ORIGIN_COUNTRY', 'LIKE', '%' . $filterdata1 . '%')
@@ -710,7 +742,7 @@ class SearchLiveDataController extends Controller
                             ->whereRaw('LENGTH(HS_CODE) <= 12')
                             ->whereNotNull('HS_CODE')
                             ->limit(10)
-                            ->get(); 
+                            ->get();
                         }
 
                     return view('frontend.livedata.searchfilter-one', [
@@ -747,7 +779,7 @@ class SearchLiveDataController extends Controller
                             // ->whereNotNull('US_EXPORTER_NAME')
                             ->limit(10)
                             ->get();
-                            
+
                             // dd($results);
                         }else if($filterby1 == 'country'){
 
@@ -766,7 +798,7 @@ class SearchLiveDataController extends Controller
                                 ->orderBy('HS_CODE', 'asc')
                                 ->limit(10)
                                 ->get();
-                            
+
                         }else{
                             // dd($type, $role,$filterby, $filterdata,  $filterby1,$filterdata1);
                                 $results = $table
@@ -783,7 +815,7 @@ class SearchLiveDataController extends Controller
                             ->whereNotNull('HS_CODE')
                             ->limit(10)
                             ->get();
-                            
+
                         }
 
                     return view('frontend.livedata.searchfilter-one', [
@@ -821,7 +853,7 @@ class SearchLiveDataController extends Controller
             # code...
             if (is_numeric($base_search)) {
                 # code...
-                if ($filterby1 == 'hs_code') {       
+                if ($filterby1 == 'hs_code') {
                     $results = $table
                     ->select('*')
                     ->where('HS_CODE', 'like', $filterdata1 . '%')
@@ -874,14 +906,14 @@ class SearchLiveDataController extends Controller
                     ->whereNotNull('US_IMPORTER_NAME')
                     ->limit(10)
                     ->get();
-                
+
                 } else {
                     # code...
                      $results = collect();
                 }
             } else {
                 # code...
-            
+
                 if ($filterby1 == 'hs_code') {
                     $results = $table
                     ->select('*')
@@ -911,7 +943,7 @@ class SearchLiveDataController extends Controller
                           ->orWhereRaw("MATCH(PRODUCT_DESCRIPTION) AGAINST(? IN BOOLEAN MODE)", [$base_search]);
                     })
                     ->where(function($query) use ($filterdata) {
-                        $query->where('HS_CODE', 'like',  $filterdata . '%')                          
+                        $query->where('HS_CODE', 'like',  $filterdata . '%')
                               ->orWhere('ORIGIN_COUNTRY', 'like', '%' . $filterdata . '%')
                               ->orWhere('UNLOADING_PORT', 'like', '%' . $filterdata . '%');
                     })
@@ -932,7 +964,7 @@ class SearchLiveDataController extends Controller
                     ->where('PRODUCT_DESCRIPTION', 'like', '%' . $base_search . '%')
                     ->whereRaw('LENGTH(HS_CODE) <= 12')
                     ->where(function($query) use ($filterdata) {
-                        $query->where('HS_CODE', 'like',  $filterdata . '%')                          
+                        $query->where('HS_CODE', 'like',  $filterdata . '%')
                             ->orWhere('ORIGIN_COUNTRY', 'like', '%' . $filterdata . '%')
                             ->orWhere('UNLOADING_PORT', 'like', '%' . $filterdata . '%');
                     })
@@ -941,7 +973,7 @@ class SearchLiveDataController extends Controller
                     ->orderBy('HS_CODE', 'asc')
                     ->whereNotNull('US_IMPORTER_NAME')
                     ->limit(5000)
-                    ->get(); 
+                    ->get();
                    // dd($results);
                 } else {
                     # code...
@@ -953,14 +985,14 @@ class SearchLiveDataController extends Controller
             // dd('In Export Bloc');
             $values = explode(',', $base_search);
             $all_numeric = true;
-            
+
             foreach ($values as $value) {
                 if (!is_numeric($value)) {
                     $all_numeric = false;
                     break;
                 }
             }
-            
+
             if ($all_numeric){
             //   dd('In numeric Bloc');
                 # code...
@@ -973,7 +1005,7 @@ class SearchLiveDataController extends Controller
                         $query->where('HS_CODE', 'like',  $filterdata. '%')
                               ->orWhere('DESTINATION_COUNTRY', 'like', '%' . $filterdata. '%')
                               ->orWhere('UNLOADING_PORT', 'like', '%' . $filterdata. '%');
-                    }) 
+                    })
                     ->whereRaw('LENGTH(HS_CODE) <= 12')
                     ->whereNotNull('HS_CODE')
                     ->orderBy(DB::raw('LENGTH(HS_CODE)'), 'asc')  // Sort by the length of HS_CODE first
@@ -1000,7 +1032,7 @@ class SearchLiveDataController extends Controller
                     // ->whereNotNull('US_EXPORTER_NAME')
                     ->limit(10)
                     ->get();
-              
+
                 } else if ($filterby1 == 'unloading_port'){
                     // dd('UNLOADING_PORT',$filterdata1,'DESTINATION_COUNTRY',$filterdata,$base_search);
                     $results = $table
@@ -1025,7 +1057,7 @@ class SearchLiveDataController extends Controller
                      $results = collect();
                 }
             } else {
-                # code...  
+                # code...
                 // dd('UNLOADING_PORT',$filterdata1,'DESTINATION_COUNTRY',$filterdata,$base_search);
                 if ($filterby1 == 'hs_code') {
                     // dd('$filterdata1',$filterdata1,'Base',$base_search,'filterdata',$filterdata);
@@ -1066,7 +1098,7 @@ class SearchLiveDataController extends Controller
                     // ->whereNotNull('US_EXPORTER_NAME')
                     ->limit(10)
                     ->get();
-                
+
                     // dd('Query Results', $results);
                 } else if ($filterby1 == 'unloading_port'){
                     $results = $table
@@ -1074,7 +1106,7 @@ class SearchLiveDataController extends Controller
                     ->where('UNLOADING_PORT', 'LIKE', '%' . $filterdata1 . '%')
                     ->where('PRODUCT_DESCRIPTION', 'like', '%' . $base_search . '%')
                     ->where(function($query) use ($filterdata) {
-                        $query->where('HS_Code', 'like', $filterdata . '%')                          
+                        $query->where('HS_Code', 'like', $filterdata . '%')
                             ->orWhere('DESTINATION_COUNTRY', 'like', '%' . $filterdata . '%')
                             ->orWhere('UNLOADING_PORT', 'like', '%' . $filterdata . '%');
                             //   ->orWhere('PRODUCT_DESCRIPTION', 'like', '%' . $searchDetails1 . '%');
@@ -1086,7 +1118,7 @@ class SearchLiveDataController extends Controller
                     // ->whereNotNull('US_EXPORTER_NAME')
                     ->limit(10)
                     ->get();
-                   
+
                 } else {
                     # code...
                      $results = collect();
@@ -1140,18 +1172,18 @@ class SearchLiveDataController extends Controller
             # code...
             $values = explode(',', $searchDetails1);
             $all_numeric = true;
-            
+
             foreach ($values as $value) {
                 if (!is_numeric($value)) {
                     $all_numeric = false;
                     break;
                 }
             }
-            
+
             if ($all_numeric){
                 # code...
                 // dd('Numeric Bloc');
-            
+
                 if ($filterby2 == 'hs_code') {
                     // dd('IN Numeric hs_code','SearchDetails', $filter, 'filterdata', $filterdata, 'filterby', $filterby, 'filterdata1', $filterdata1);
 
@@ -1171,7 +1203,7 @@ class SearchLiveDataController extends Controller
                     ->whereRaw('LENGTH(HS_CODE) <= 12')
                     ->whereNotNull('HS_CODE')
                     ->limit(10)
-                    ->get();  
+                    ->get();
 
                     // dd('if BlockS');
                 } else if ($filterby2 == 'country') {
@@ -1193,8 +1225,8 @@ class SearchLiveDataController extends Controller
                     ->whereNotNull('HS_CODE')
                     ->whereNotNull('US_IMPORTER_NAME')
                     ->limit(10)
-                    ->get();   
-                    
+                    ->get();
+
 
                     // dd('Country',$results);
                 } else if ($filterby2 == 'unloading_port') {
@@ -1216,8 +1248,8 @@ class SearchLiveDataController extends Controller
                     ->whereNotNull('HS_CODE')
                     ->whereNotNull('US_IMPORTER_NAME')
                     ->limit(10)
-                    ->get();  
-                
+                    ->get();
+
                 } else {
                     # code...
                     $results = collect();
@@ -1245,9 +1277,9 @@ class SearchLiveDataController extends Controller
                     ->whereNotNull('HS_CODE')
                     ->whereNotNull('US_IMPORTER_NAME')
                     ->limit(10)
-                    ->get(); 
-        
-                
+                    ->get();
+
+
                 } else if ($filterby2 == 'country') {
                     // dd('CoUNTRY BLOCK');
                 // dd('Type',$type,'Role', $role,'searchDetails1',$searchDetails1,'Filter', $filter,'Filterby',$filterby,'Filterby1', $filterby1, 'Filterdata',$filterdata,'Filterby2', $filterby2,'Filterdata1', $filterdata1);
@@ -1270,8 +1302,8 @@ class SearchLiveDataController extends Controller
                     ->whereNotNull('HS_CODE')
                     ->whereNotNull('US_IMPORTER_NAME')
                     ->limit(10)
-                    ->get(); 
-                
+                    ->get();
+
 
                 } else if ($filterby2 == 'unloading_port') {
 
@@ -1293,8 +1325,8 @@ class SearchLiveDataController extends Controller
                     })
                     ->whereRaw('LENGTH(HS_CODE) <= 12')
                     ->limit(10)
-                    ->get(); 
-    
+                    ->get();
+
                 } else {
                     # code...
                     $results = collect();
@@ -1305,16 +1337,16 @@ class SearchLiveDataController extends Controller
             // dd('In Export Block',$filterby,$filterby2);
             $values = explode(',', $searchDetails1);
             $all_numeric = true;
-            
+
             foreach ($values as $value) {
                 if (!is_numeric($value)) {
                     $all_numeric = false;
                     break;
                 }
             }
-            
+
             if ($all_numeric){
-                # code...  
+                # code...
                 // dd("In Numeric block",'filterby',$filterby,'filterby2',$filterby2);
                 if($filterby2 == 'hs_code'){
                     //dd("In Hs_Code",$type, $role,$filterby, $filter, $filterby1, $filterdata, $filterby2, $filterdata1);
@@ -1383,14 +1415,14 @@ class SearchLiveDataController extends Controller
                     // dd($results->toSql(),$results->getBindings());
                     // dd($results);
                 }
-                
+
             } else {
                 # code...
                 // dd('In description Block');
                 if ($filterby2 == 'hs_code') {
                     # code...
                     //dd($arg,'PRODUCT_DESCRIPTION', $searchDetails1,'DESTINATION_COUNTRY', $filterdata,'HS_CODE', $filterdata1 );
-                
+
                     $results = $table
                     ->select('*')
                     ->where('PRODUCT_DESCRIPTION', 'LIKE','%'.$searchDetails1 .'%')
@@ -1410,7 +1442,7 @@ class SearchLiveDataController extends Controller
                     ->whereNotNull('US_EXPORTER_NAME')
                     ->limit(10)
                     ->get();
-                
+
                 } elseif($filterby2 == 'country') {
                     # code...
                     //dd('PRODUCT_sDESCRIPTION', $searchDetails1,'UNLOADING_PORT', 'DESTINATION_COUNTRY',$filterdata1,$filter,$filterdata1);
@@ -1435,7 +1467,7 @@ class SearchLiveDataController extends Controller
                     ->get();
                     // dd('Export last country non numeric',$results);
                 } elseif ($filterby2 == 'unloading_port') {
-                    # code...     
+                    # code...
 
                     $results = $table
                     ->select('*')
@@ -1458,7 +1490,7 @@ class SearchLiveDataController extends Controller
                     ->get();
                 }
             }
-            
+
         }
         // dd($search);
         // Return the view with results

@@ -2282,15 +2282,17 @@ table tbody tr th a:hover {
     -moz-box-shadow: 0px 0px 7px -1px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 7px -1px rgba(0,0,0,0.75);
 }
+
+/* filter card css */
 .filter-card {
     background-color: white;
     border: 1px #cfe2ff;
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
     width: auto;
-    -webkit-box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.75);
-    -moz-box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.75);
-    box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 0px 8px 0px  rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 8px 0px  rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 8px 0px  rgba(0,0,0,0.75);
 }
 .filter-card .head {
     background-color: #00506E;
@@ -2300,11 +2302,79 @@ table tbody tr th a:hover {
     color: white;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 .filter-card .filter-list {
     overflow: auto;
-    max-height: 19rem;
+    max-height: 20rem;
     padding: 12px;
+}
+.filter-list ul {
+    list-style: none;
+    padding-left: 2px;
+}
+.filter-list .nested {
+    padding-left: 20px;
+    display: grid;
+}
+
+/* .tree-view {
+    list-style-type: none;
+    padding-left: 20px;
+}
+.tree-view li {
+    margin: 5px 0;
+    cursor: pointer;
+}
+.toggle {
+    display: none;
+} */
+
+
+/* Styling for the tree view */
+ .treeview ul {
+    list-style: none;
+    list-style-type: none;
+}
+
+.treeview li {
+    margin-left: 20px;
+    position: relative;
+    list-style: none;
+}
+
+.treeview li::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: -20px;
+    width: 20px;
+    height: 10px;
+}
+
+.treeview li::after {
+    content: '/f146';
+    position: absolute;
+    top: 25px;
+    left: -20px;
+    height: 100%;
+}
+
+.treeview li:last-child::after {
+    height: 20px;
+}
+
+/* Collapsed icon */
+.tree-toggle::before {
+    content: '\f146'; /* Font Awesome "caret-right" */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-right: 5px;
+}
+
+/* Expanded icon */
+.tree-toggle.collapsed::before {
+    content: '\f0fe'; /* Font Awesome "caret-down" */
 }
 
 

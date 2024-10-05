@@ -21,7 +21,7 @@ Route::get('/search-data/{country}/{type}/{role}er/{description?}/{hs_code?}', [
 Route::group(['prefix' => 'search'], function () {
     Route::get('/{country}/{type}/{role}/{filterby}-{filterdata}', [SearchLiveDataController::class, 'searchFilter'])->name('hs-code');
     // Route::get('/{type}/{role}/{filterby}-{filterdata}/{filterby1}-{filterdata1?}', [SearchLiveDataController::class, 'searchFilter1'])->name('search-filterone');
-    Route::get('/{country}/{type}/{role}/{filterby}-{filterdata}/{filterby1?}-{filterdata1?}', [SearchLiveDataController::class, 'searchFilter1'])->name('searchfilterone');  
+    Route::get('/{country}/{type}/{role}/{filterby}-{filterdata}/{filterby1?}-{filterdata1?}', [SearchLiveDataController::class, 'searchFilter1'])->name('searchfilterone');
     Route::get('/{country}/{type}/{role}/{search}-{base_search?}/{filterby}-{filterdata?}', [SearchLiveDataController::class, 'searchFilter'])->name('search-filter');
     Route::get('/{country}/{type}/{role}/{search}-{base_search?}/{filterby}-{filterdata}/{filterby1}-{filterdata1?}', [SearchLiveDataController::class, 'searchFilter1'])->name('search-filter-one');
     Route::get('/{country}/{type}/{role}/{filterby}-{filter}/{filterby1}-{filterdata}/{filterby2}-{filterdata1?}', [SearchLiveDataController::class, 'searchFilter2'])->name('searchfiltertwo');
