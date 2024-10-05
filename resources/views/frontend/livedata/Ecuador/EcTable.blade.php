@@ -236,7 +236,7 @@
                             <h4 class="fw-semibold text-start">Unit</h4>
                         </th>
                         <th class="table-primary p-3">
-                            <h4 class="fw-semibold text-start">Weight</h4>
+                            <h4 class="fw-semibold text-start">Value($)</h4>
                         </th>
                         <th class="table-primary p-3">
                             <h4 class="fw-semibold text-start">Expoter Name</h4>
@@ -319,7 +319,7 @@
                                     {{$Dresult->UNIT}}
                                 </td>
                                 <td class="fw-normal text-gray p-3">
-                                    {{$Dresult->WEIGHT}}
+                                    {{$Dresult->US_FOB}}
                                 </td>
                                 <td class="fw-normal text-gray p-3">
                                     <a>Exporter Name</a>

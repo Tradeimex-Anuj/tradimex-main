@@ -224,7 +224,7 @@
                             <h4 class="fw-semibold text-start">Product Description</h4>
                         </th>
                         <th class="table-primary p-3">
-                            <h4 class="fw-semibold text-start">Origin Country</h4>
+                            <h4 class="fw-semibold text-start">Destination Country</h4>
                         </th>
                         <th class="table-primary p-3">
                             <h4 class="fw-semibold text-start">Loading Port</h4>
@@ -236,7 +236,7 @@
                             <h4 class="fw-semibold text-start">Unit</h4>
                         </th>
                         <th class="table-primary p-3">
-                            <h4 class="fw-semibold text-start">Weight</h4>
+                            <h4 class="fw-semibold text-start">Value($)</h4>
                         </th>
                         <th class="table-primary p-3">
                             <h4 class="fw-semibold text-start">Expoter Name</h4>
@@ -313,13 +313,13 @@
                                     </a>
                                 </td>
                                 <td class="fw-normal text-gray p-3">
-                                    {{$Dresult->QUANTITY}}
+                                    {{$Dresult->QUANTITY_SUBITEM}}
                                 </td>
                                 <td class="fw-normal text-gray p-3">
-                                    {{$Dresult->UNIT}}
+                                    {{$Dresult->COMMERCIAL_UNIT}}
                                 </td>
                                 <td class="fw-normal text-gray p-3">
-                                    {{$Dresult->WEIGHT}}
+                                    {{$Dresult->TOTAL_US_FOB}}
                                 </td>
                                 <td class="fw-normal text-gray p-3">
                                     <a>Exporter Name</a>

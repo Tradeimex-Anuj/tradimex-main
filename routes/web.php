@@ -63,7 +63,7 @@ Route::get('/search-data/{search_country}/{type}/{role}/{description?}/{hs_code?
      ->name('search.data');
 
 // Route for type 'company' with 'er' appended to role
-Route::get('/search-data/{country}/{type}/{role}er/{description?}/{hs_code?}', [SearchLiveDataController::class, 'search'])
+Route::get('/search-company/{search_country}/{type}/{role}er/{description?}/{hs_code?}', [SearchLiveDataController::class, 'search'])
      ->name('search.company');
     //  Route::group(['prefix' => 'search'], function () {
     //     Route::get('/{country}/{type}/{role}/{filterby}-{filterdata}', [SearchLiveDataController::class, 'searchFilter'])->name('hs-code');

@@ -65,9 +65,9 @@ class SearchLiveDataController extends Controller
           } elseif ($type === 'company') {
               
                 if ($hs_code === '-') {
-                    $url = route('search.company', ['type' => $type, 'role' => $role, 'description' => $description]);
+                    $url = route('search.company', ['search_country'=>$search_country,'type' => $type, 'role' => $role, 'description' => $description]);
                 } else {
-                    $url = route('search.company', ['type' => $type, 'role' => $role, 'description' => $description, 'hs_code' => $hs_code]);
+                    $url = route('search.company', ['search_country'=>$search_country,'type' => $type, 'role' => $role, 'description' => $description, 'hs_code' => $hs_code]);
                 }
           } else {
               abort(404);
@@ -108,6 +108,16 @@ class SearchLiveDataController extends Controller
             } elseif($type == 'export') {
                 # code...
                 return DB::connection($secondDbConnection)->table('argentina_export');
+            }
+            
+        }elseif ($search_country == 'Panama') {
+            # code...           
+            if ($type == 'import') {
+                # code...
+                return DB::connection($secondDbConnection)->table('Panama_import');
+            } elseif($type == 'export') {
+                # code...
+                return DB::connection($secondDbConnection)->table('Panama_Export');
             }
             
         }
@@ -260,6 +270,7 @@ class SearchLiveDataController extends Controller
                 'hscode' => $filterdata,
                 'filterdata' => $filterdata,
                 'base_search' => $filterdata,
+                'searchDetails1' => $filterdata,
                 'searfilterdata' => $filterdata,
                 'searchfilterby' => $filterby,
                 'search' => $filterby,
@@ -615,7 +626,7 @@ class SearchLiveDataController extends Controller
                             ->whereRaw('LENGTH(HS_CODE) <= 12')
                             ->where(function($query) use ($filterdata) {
                                 $query->where('HS_CODE', 'like',  $filterdata . '%')
-                                        ->orWhere('ORIGIN_COUNTRY', 'like', '%' . $filterdata . '%')
+                                        ->orWhere('DESTINATION_COUNTRY', 'like', '%' . $filterdata . '%')
                                         ->orWhere('UNLOADING_PORT', 'like', '%' . $filterdata . '%');
                             })
                             ->whereNotNull('HS_CODE')
@@ -632,7 +643,7 @@ class SearchLiveDataController extends Controller
                             ->whereRaw('LENGTH(HS_CODE) <= 12')
                             ->where(function($query) use ($filterdata) {
                                 $query->where('HS_CODE', 'like', '%' . $filterdata . '%')
-                                        ->orWhere('ORIGIN_COUNTRY', 'like', '%' . $filterdata . '%');
+                                        ->orWhere('DESTINATION_COUNTRY', 'like', '%' . $filterdata . '%');
                             })
                             ->orderBy(DB::raw('LENGTH(HS_CODE)'), 'asc')  // Sort by the length of HS_CODE first
                             ->orderBy('HS_CODE', 'asc')

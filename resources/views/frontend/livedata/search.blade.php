@@ -33,7 +33,7 @@
             </p>
         </div>
         <div class="container">
-            <form method="GET" action="{{ url('/search-live') }}" enctype="multipart/form-data">
+            <form method="GET"  action="{{ route('product.list') }}" enctype="multipart/form-data">
                 <div class="mb-4 mt-4 flex justify-content-center align-items-center">
                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group" name = "type">
                         <input name="type" type="radio" class="btn-check" value="data" id="btnradio1" autocomplete="off" checked>
@@ -45,7 +45,7 @@
                 </div>
                 
                 <div class="row bg-white" style="border-radius: 1rem;">
-                    <div class="searchbox col-sm-2 col-md-2 col-lg-2">
+                    <div class="searchbox col-sm-2 col-md-2 col-lg-2"> 
                         <select class="form-control" style="border: 0px transparent !important;" name="country">
                             <option class="form-control" value="">Select Country</option> 
                             <!--<option class="form-control" value="Asia">Asia</option> -->
@@ -107,12 +107,12 @@
                             <!--<option class="form-control" value="Mexico">Mexico</option>-->
                             <!--<option class="form-control" value="Panama">Panama</option>-->
                             <option class="form-control" value="US">US</option>
-                            <!--<option class="form-control" value="Argentina">Argentina</option>-->
+                            <option class="form-control" value="Argentina">Argentina</option>
                             <!--<option class="form-control" value="Bolivia">Bolivia</option>-->
                             <!--<option class="form-control" value="Brazil">Brazil</option>-->
                             <!--<option class="form-control" value="Chile">Chile</option>-->
                             <!--<option class="form-control" value="Colombia">Colombia</option>-->
-                            <!--<option class="form-control" value="Ecuador">Ecuador</option>-->
+                            <option class="form-control" value="Ecuador">Ecuador</option>
                             <!--<option class="form-control" value="Guyana">Guyana</option>-->
                             <!--<option class="form-control" value="Paraguay">Paraguay</option>-->
                             <!--<option class="form-control" value="Peru">Peru</option>-->
@@ -156,7 +156,7 @@
                             <!--<option class="form-control" value="Australia">Australia</option>-->
                             <!--<option class="form-control" value="Fiji">Fiji</option>-->
                             <!--<option class="form-control" value="New Zealand">New Zealand</option>-->
-                        </select>
+                        </select> 
                     </div>
                     <div class="searchbox col-sm-2 col-md-2 col-lg-2"> 
                         <select class="form-control" name="role" style="border: 0px transparent !important;">
@@ -187,8 +187,10 @@
         @include('frontend.livedata.austria.austriaTable')
     @elseif($country == 'Ecuador')
         @include('frontend.livedata.Ecuador.EcTable')
+    @elseif($country == 'Argentina')
+        @include('frontend.livedata.Argentina.argentinaTable')
     @endif
-   
+    
 
     @include('frontend.tab_inc')
     @include('frontend.footer')

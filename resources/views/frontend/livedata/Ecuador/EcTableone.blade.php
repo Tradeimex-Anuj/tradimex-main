@@ -459,7 +459,7 @@
                                 <h4 class="fw-bolder">Unit</h4>
                             </th>
                             <th class="table-primary">
-                                <h4 class="fw-bolder">Weight</h4>
+                                <h4 class="fw-bolder">Value($)</h4>
                             </th>
                             <th class="table-primary">
                                 <h4 class="fw-bolder">Importer Name</h4>
@@ -826,7 +826,7 @@
                                                 <p>{{ $Dresult->UNIT }}</p>
                                             </td>
                                             <td class="px-6 py-4 font-medium text-gray-900 align-top">
-                                                <p>{{ $Dresult->WEIGHT }}</p>
+                                                <p>{{ $Dresult->US_FOB }}</p>
                                             </td>
                                             <td class="px-6 py-4 font-medium align-top">
                                                 <p data-modal-target="crud-modal-1" data-modal-toggle="crud-modal-1" class="font-medium text-blue-600 hover:underline transition-all">
