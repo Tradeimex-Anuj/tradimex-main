@@ -120,6 +120,26 @@ class SearchLiveDataController extends Controller
                 return DB::connection($secondDbConnection)->table('Panama_Export');
             }
             
+        }elseif ($search_country == 'Chile') {
+            # code...           
+            if ($type == 'import') {
+                # code...
+                return DB::connection($secondDbConnection)->table('Chile_import');
+            } elseif($type == 'export') {
+                # code...
+                return DB::connection($secondDbConnection)->table('Chile_Export');
+            }
+            
+        }elseif ($search_country == 'Paraguay') {
+            # code...           
+            if ($type == 'import') {
+                # code...
+                return DB::connection($secondDbConnection)->table('Paraguay_Import');
+            } elseif($type == 'export') {
+                # code...
+                return DB::connection($secondDbConnection)->table('Paraguay_Export');
+            }
+            
         }
         
         return null; // Return null if no table is matched
@@ -560,7 +580,7 @@ class SearchLiveDataController extends Controller
                             ->whereRaw('LENGTH(HS_CODE) <= 12')
                             ->orderBy(DB::raw('LENGTH(HS_CODE)'), 'asc')  // Sort by the length of HS_CODE first
                             ->orderBy('HS_CODE', 'asc')
-                            ->whereNotNull('US_IMPORTER_NAME')
+                            // ->whereNotNull('US_IMPORTER_NAME')
                             ->limit(10)
                             ->get();
                         }else{
@@ -864,7 +884,7 @@ class SearchLiveDataController extends Controller
                     ->whereRaw('LENGTH(HS_CODE) <= 12')
                     ->orderBy(DB::raw('LENGTH(HS_CODE)'), 'asc')  // Sort by the length of HS_CODE first
                     ->orderBy('HS_CODE', 'asc')
-                    ->whereNotNull('US_IMPORTER_NAME')
+                    // ->whereNotNull('US_IMPORTER_NAME')
                     ->limit(10)
                     ->get();
                     // dd('Country Block',$results);
@@ -882,7 +902,7 @@ class SearchLiveDataController extends Controller
                     ->orderBy(DB::raw('LENGTH(HS_CODE)'), 'asc')  // Sort by the length of HS_CODE first
                     ->orderBy('HS_CODE', 'asc')
                     ->whereNotNull('HS_CODE')
-                    ->whereNotNull('US_IMPORTER_NAME')
+                    // ->whereNotNull('US_IMPORTER_NAME')
                     ->limit(10)
                     ->get();
                 

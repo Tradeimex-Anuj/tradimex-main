@@ -600,6 +600,12 @@
         @include('frontend.livedata.Ecuador.EcTableone')
     @elseif($search_country == 'Argentina')
         @include('frontend.livedata.Argentina.argentinaTableOne')
+    @elseif($search_country == 'Panama')
+        @include('frontend.livedata.Panama.panamaTableOne')
+    @elseif($search_country == 'Paraguay')
+        @include('frontend.livedata.Paraguay.paraguayTableOne')
+    @elseif($search_country == 'Chile')
+        @include('frontend.livedata.Chile.chileTableOne')
     @endif
 
     @include('frontend.tab_inc')
