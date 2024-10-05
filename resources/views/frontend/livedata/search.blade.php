@@ -33,7 +33,11 @@
             </p>
         </div>
         <div class="container">
+<<<<<<< HEAD
             <form method="GET" action="{{ url('/search-live') }}" enctype="multipart/form-data">
+=======
+            <form method="GET"  action="{{ route('product.list') }}" enctype="multipart/form-data">
+>>>>>>> 04a096cefd956ed8d5f5a9841a8da4ad0a300d9c
                 <div class="mb-4 mt-4 flex justify-content-center align-items-center">
                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group" name = "type">
                         <input name="type" type="radio" class="btn-check" value="data" id="btnradio1" autocomplete="off" checked>
@@ -45,7 +49,11 @@
                 </div>
                 
                 <div class="row bg-white" style="border-radius: 1rem;">
+<<<<<<< HEAD
                     <div class="searchbox col-sm-2 col-md-2 col-lg-2">
+=======
+                    <div class="searchbox col-sm-2 col-md-2 col-lg-2"> 
+>>>>>>> 04a096cefd956ed8d5f5a9841a8da4ad0a300d9c
                         <select class="form-control" style="border: 0px transparent !important;" name="country">
                             <option class="form-control" value="">Select Country</option> 
                             <!--<option class="form-control" value="Asia">Asia</option> -->
@@ -105,6 +113,7 @@
                             <!--<option class="form-control" value="Guatemala">Guatemala</option>-->
                             <!--<option class="form-control" value="Honduras">Honduras</option>-->
                             <!--<option class="form-control" value="Mexico">Mexico</option>-->
+<<<<<<< HEAD
                             <!--<option class="form-control" value="Panama">Panama</option>-->
                             <option class="form-control" value="US">US</option>
                             <!--<option class="form-control" value="Argentina">Argentina</option>-->
@@ -115,6 +124,18 @@
                             <!--<option class="form-control" value="Ecuador">Ecuador</option>-->
                             <!--<option class="form-control" value="Guyana">Guyana</option>-->
                             <!--<option class="form-control" value="Paraguay">Paraguay</option>-->
+=======
+                            <option class="form-control" value="Panama">Panama</option>
+                            <option class="form-control" value="US">US</option>
+                            <option class="form-control" value="Argentina">Argentina</option>
+                            <!--<option class="form-control" value="Bolivia">Bolivia</option>-->
+                            <!--<option class="form-control" value="Brazil">Brazil</option>-->
+                            <option class="form-control" value="Chile">Chile</option>
+                            <!--<option class="form-control" value="Colombia">Colombia</option>-->
+                            <option class="form-control" value="Ecuador">Ecuador</option>
+                            <!--<option class="form-control" value="Guyana">Guyana</option>-->
+                            <option class="form-control" value="Paraguay">Paraguay</option>
+>>>>>>> 04a096cefd956ed8d5f5a9841a8da4ad0a300d9c
                             <!--<option class="form-control" value="Peru">Peru</option>-->
                             <!--<option class="form-control" value="Uruguay">Uruguay</option>-->
                             <!--<option class="form-control" value="Venezuela">Venezuela</option> -->
@@ -156,7 +177,11 @@
                             <!--<option class="form-control" value="Australia">Australia</option>-->
                             <!--<option class="form-control" value="Fiji">Fiji</option>-->
                             <!--<option class="form-control" value="New Zealand">New Zealand</option>-->
+<<<<<<< HEAD
                         </select>
+=======
+                        </select> 
+>>>>>>> 04a096cefd956ed8d5f5a9841a8da4ad0a300d9c
                     </div>
                     <div class="searchbox col-sm-2 col-md-2 col-lg-2"> 
                         <select class="form-control" name="role" style="border: 0px transparent !important;">
@@ -179,7 +204,11 @@
             </form>
         </div>
     </section>
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 04a096cefd956ed8d5f5a9841a8da4ad0a300d9c
     {{-- Result Table --}}
     @if($country == "US")
         @include('frontend.livedata.US.USTable')  
@@ -187,8 +216,21 @@
         @include('frontend.livedata.austria.austriaTable')
     @elseif($country == 'Ecuador')
         @include('frontend.livedata.Ecuador.EcTable')
+<<<<<<< HEAD
     @endif
    
+=======
+    @elseif($country == 'Argentina')
+        @include('frontend.livedata.Argentina.argentinaTable')
+    @elseif($country == 'Panama')
+        @include('frontend.livedata.Panama.panamaTable')
+    @elseif($country == 'Paraguay')
+        @include('frontend.livedata.Paraguay.paraguayTable')
+    @elseif($country == 'Chile')
+        @include('frontend.livedata.Chile.chileTable')
+    @endif
+    
+>>>>>>> 04a096cefd956ed8d5f5a9841a8da4ad0a300d9c
 
     @include('frontend.tab_inc')
     @include('frontend.footer')

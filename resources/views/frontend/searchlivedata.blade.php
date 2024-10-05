@@ -89,16 +89,28 @@
                             <!--<option class="form-control" value="Guatemala">Guatemala</option>-->
                             <!--<option class="form-control" value="Honduras">Honduras</option>-->
                             <!--<option class="form-control" value="Mexico">Mexico</option>-->
+<<<<<<< HEAD
                             <!--<option class="form-control" value="Panama">Panama</option>-->
+=======
+                            <option class="form-control" value="Panama">Panama</option>
+>>>>>>> 04a096cefd956ed8d5f5a9841a8da4ad0a300d9c
                             <option class="form-control" value="US">US</option>
                             <option class="form-control" value="Argentina">Argentina</option>
                             <!--<option class="form-control" value="Bolivia">Bolivia</option>-->
                             <!--<option class="form-control" value="Brazil">Brazil</option>-->
+<<<<<<< HEAD
                             <!--<option class="form-control" value="Chile">Chile</option>-->
                             <!--<option class="form-control" value="Colombia">Colombia</option>-->
                             <option class="form-control" value="Ecuador">Ecuador</option>
                             <!--<option class="form-control" value="Guyana">Guyana</option>-->
                             <!--<option class="form-control" value="Paraguay">Paraguay</option>-->
+=======
+                            <option class="form-control" value="Chile">Chile</option>
+                            <!--<option class="form-control" value="Colombia">Colombia</option>-->
+                            <option class="form-control" value="Ecuador">Ecuador</option>
+                            <!--<option class="form-control" value="Guyana">Guyana</option>-->
+                            <option class="form-control" value="Paraguay">Paraguay</option>
+>>>>>>> 04a096cefd956ed8d5f5a9841a8da4ad0a300d9c
                             <!--<option class="form-control" value="Peru">Peru</option>-->
                             <!--<option class="form-control" value="Uruguay">Uruguay</option>-->
                             <!--<option class="form-control" value="Venezuela">Venezuela</option> -->

@@ -224,7 +224,11 @@
                             <h4 class="fw-semibold text-start">Product Description</h4>
                         </th>
                         <th class="table-primary p-3">
+<<<<<<< HEAD
                             <h4 class="fw-semibold text-start">Origin Country</h4>
+=======
+                            <h4 class="fw-semibold text-start">Destination Country</h4>
+>>>>>>> 04a096cefd956ed8d5f5a9841a8da4ad0a300d9c
                         </th>
                         <th class="table-primary p-3">
                             <h4 class="fw-semibold text-start">Loading Port</h4>
@@ -236,7 +240,11 @@
                             <h4 class="fw-semibold text-start">Unit</h4>
                         </th>
                         <th class="table-primary p-3">
+<<<<<<< HEAD
                             <h4 class="fw-semibold text-start">Weight</h4>
+=======
+                            <h4 class="fw-semibold text-start">Value($)</h4>
+>>>>>>> 04a096cefd956ed8d5f5a9841a8da4ad0a300d9c
                         </th>
                         <th class="table-primary p-3">
                             <h4 class="fw-semibold text-start">Expoter Name</h4>
@@ -313,6 +321,7 @@
                                     </a>
                                 </td>
                                 <td class="fw-normal text-gray p-3">
+<<<<<<< HEAD
                                     {{$Dresult->QUANTITY}}
                                 </td>
                                 <td class="fw-normal text-gray p-3">
@@ -320,6 +329,15 @@
                                 </td>
                                 <td class="fw-normal text-gray p-3">
                                     {{$Dresult->WEIGHT}}
+=======
+                                    {{$Dresult->QUANTITY_SUBITEM}}
+                                </td>
+                                <td class="fw-normal text-gray p-3">
+                                    {{$Dresult->COMMERCIAL_UNIT}}
+                                </td>
+                                <td class="fw-normal text-gray p-3">
+                                    {{$Dresult->TOTAL_US_FOB}}
+>>>>>>> 04a096cefd956ed8d5f5a9841a8da4ad0a300d9c
                                 </td>
                                 <td class="fw-normal text-gray p-3">
                                     <a>Exporter Name</a>

@@ -63,16 +63,28 @@ Route::get('/search-data/{search_country}/{type}/{role}/{description?}/{hs_code?
      ->name('search.data');
 
 // Route for type 'company' with 'er' appended to role
+<<<<<<< HEAD
 Route::get('/search-data/{country}/{type}/{role}er/{description?}/{hs_code?}', [SearchLiveDataController::class, 'search'])
+=======
+Route::get('/search-company/{search_country}/{type}/{role}er/{description?}/{hs_code?}', [SearchLiveDataController::class, 'search'])
+>>>>>>> 04a096cefd956ed8d5f5a9841a8da4ad0a300d9c
      ->name('search.company');
     //  Route::group(['prefix' => 'search'], function () {
     //     Route::get('/{country}/{type}/{role}/{filterby}-{filterdata}', [SearchLiveDataController::class, 'searchFilter'])->name('hs-code');
     //     // Route::get('/{type}/{role}/{filterby}-{filterdata}/{filterby1}-{filterdata1?}', [SearchLiveDataController::class, 'searchFilter1'])->name('search-filterone');
+<<<<<<< HEAD
     //     Route::get('/{country}/{country}/{type}/{role}/{filterby}-{filterdata}/{filterby1?}-{filterdata1?}', [SearchLiveDataController::class, 'searchFilter1'])->name('searchfilterone');
     //     Route::get('/{country}/{type}/{role}/{search}-{base_search?}/{filterby}-{filterdata?}', [SearchLiveDataController::class, 'searchFilter'])->name('search-filter');
     //     Route::get('/{country}/{type}/{role}/{search}-{base_search?}/{filterby}-{filterdata}/{filterby1}-{filterdata1?}', [SearchLiveDataController::class, 'searchFilter1'])->name('search-filter-one');
     //     Route::get('/{country}/{type}/{role}/{filterby}-{filter}/{filterby1}-{filterdata}/{filterby2}-{filterdata1?}', [SearchLiveDataController::class, 'searchFilter2'])->name('searchfiltertwo');
 
+=======
+    //     Route::get('/{country}/{country}/{type}/{role}/{filterby}-{filterdata}/{filterby1?}-{filterdata1?}', [SearchLiveDataController::class, 'searchFilter1'])->name('searchfilterone');  
+    //     Route::get('/{country}/{type}/{role}/{search}-{base_search?}/{filterby}-{filterdata?}', [SearchLiveDataController::class, 'searchFilter'])->name('search-filter');
+    //     Route::get('/{country}/{type}/{role}/{search}-{base_search?}/{filterby}-{filterdata}/{filterby1}-{filterdata1?}', [SearchLiveDataController::class, 'searchFilter1'])->name('search-filter-one');
+    //     Route::get('/{country}/{type}/{role}/{filterby}-{filter}/{filterby1}-{filterdata}/{filterby2}-{filterdata1?}', [SearchLiveDataController::class, 'searchFilter2'])->name('searchfiltertwo');
+    
+>>>>>>> 04a096cefd956ed8d5f5a9841a8da4ad0a300d9c
     //     Route::get('/{type}/{role}/{search}-{searchDetails1}/{filterby}-{filter}/{filterby1}-{filterdata}/{filterby2?}-{filterdata1}', [SearchLiveDataController::class, 'searchFilter2'])->name('search-filter-two');
     // });
 // HS - Code

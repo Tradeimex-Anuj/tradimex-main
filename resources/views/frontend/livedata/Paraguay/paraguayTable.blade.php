@@ -52,11 +52,7 @@
                         $Dresult = $result;
                         $iteration = 0;
                     @endphp
-<<<<<<< HEAD
-
-=======
                             
->>>>>>> 04a096cefd956ed8d5f5a9841a8da4ad0a300d9c
                     @if(isset($Dresult) && $Dresult->count() > 0)
                         @foreach ($Dresult as $Dresult)
                             @php
@@ -124,19 +120,15 @@
                                     {{$Dresult->QUANTITY}}
                                 </td>
                                 <td class="fw-normal text-gray p-3">
-                                    {{$Dresult->UNIT}}
+                                    {{$Dresult->US_CIF}}
                                 </td>
                                 <td class="fw-normal text-gray p-3">
-                                    {{$Dresult->WEIGHT}}
+                                    {{$Dresult->US_FOB}}
                                 </td>
                                 <td class="fw-normal text-gray p-3">
                                     <a>
                                         Importer Name
-<<<<<<< HEAD
-                                    </a>
-=======
                                     </a> 
->>>>>>> 04a096cefd956ed8d5f5a9841a8da4ad0a300d9c
                                 </td>
                             </tr>
                             @if($iteration == 10)
@@ -190,11 +182,7 @@
                                                 @if (++$i >= 10)
                                                     @break
                                                 @endif
-<<<<<<< HEAD
-                                            @endforeach
-=======
                                             @endforeach                                        
->>>>>>> 04a096cefd956ed8d5f5a9841a8da4ad0a300d9c
                                         </ul>
                                     </li>
                                     <li>
@@ -239,7 +227,7 @@
                             <h4 class="fw-semibold text-start">Origin Country</h4>
                         </th>
                         <th class="table-primary p-3">
-                            <h4 class="fw-semibold text-start">Loading Port</h4>
+                            <h4 class="fw-semibold text-start">Custom</h4>
                         </th>
                         <th class="table-primary p-3">
                             <h4 class="fw-semibold text-start">QTY.</h4>
@@ -248,11 +236,7 @@
                             <h4 class="fw-semibold text-start">Unit</h4>
                         </th>
                         <th class="table-primary p-3">
-<<<<<<< HEAD
-                            <h4 class="fw-semibold text-start">Weight</h4>
-=======
                             <h4 class="fw-semibold text-start">Value($)</h4>
->>>>>>> 04a096cefd956ed8d5f5a9841a8da4ad0a300d9c
                         </th>
                         <th class="table-primary p-3">
                             <h4 class="fw-semibold text-start">Expoter Name</h4>
@@ -264,7 +248,7 @@
                         $Dresult = $exportresult;
                         $iteration = 0;
                     @endphp
-                    {{-- @dd($exportresult) --}}
+                    
                     @if(isset($Dresult) && $Dresult->count() > 0)
                         @foreach ($Dresult as $Dresult)
                             @php
@@ -272,11 +256,7 @@
                                 $res_hs_code = $Dresult->HS_CODE;
                                 $destination_country = $Dresult->DESTINATION_COUNTRY;
                                 $unloading_port  = $Dresult->UNLOADING_PORT;
-<<<<<<< HEAD
-
-=======
                                 
->>>>>>> 04a096cefd956ed8d5f5a9841a8da4ad0a300d9c
                                 // Hs code Url
                                 if ($hs_code) {
                                     # code...
@@ -336,14 +316,10 @@
                                     {{$Dresult->QUANTITY}}
                                 </td>
                                 <td class="fw-normal text-gray p-3">
-                                    {{$Dresult->UNIT}}
+                                    {{$Dresult->US_FOB_UNIT}}
                                 </td>
                                 <td class="fw-normal text-gray p-3">
-<<<<<<< HEAD
-                                    {{$Dresult->WEIGHT}}
-=======
                                     {{$Dresult->US_FOB}}
->>>>>>> 04a096cefd956ed8d5f5a9841a8da4ad0a300d9c
                                 </td>
                                 <td class="fw-normal text-gray p-3">
                                     <a>Exporter Name</a>
@@ -389,8 +365,4 @@
             $(this).text($(this).text() === '+' ? '-' : '+'); // Change the toggle text
         });
     });
-<<<<<<< HEAD
 </script>
-=======
-</script>
->>>>>>> 04a096cefd956ed8d5f5a9841a8da4ad0a300d9c

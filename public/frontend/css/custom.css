@@ -2282,17 +2282,26 @@ table tbody tr th a:hover {
     -moz-box-shadow: 0px 0px 7px -1px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 7px -1px rgba(0,0,0,0.75);
 }
+<<<<<<< HEAD
 
 /* filter card css */
+=======
+>>>>>>> 04a096cefd956ed8d5f5a9841a8da4ad0a300d9c
 .filter-card {
     background-color: white;
     border: 1px #cfe2ff;
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
     width: auto;
+<<<<<<< HEAD
     -webkit-box-shadow: 0px 0px 8px 0px  rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 8px 0px  rgba(0,0,0,0.75);
     box-shadow: 0px 0px 8px 0px  rgba(0,0,0,0.75);
+=======
+    -webkit-box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.75);
+    box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.75);
+>>>>>>> 04a096cefd956ed8d5f5a9841a8da4ad0a300d9c
 }
 .filter-card .head {
     background-color: #00506E;
@@ -2302,6 +2311,7 @@ table tbody tr th a:hover {
     color: white;
     display: flex;
     align-items: center;
+<<<<<<< HEAD
     justify-content: center;
 }
 .filter-card .filter-list {
@@ -2376,6 +2386,14 @@ table tbody tr th a:hover {
 .tree-toggle.collapsed::before {
     content: '\f0fe'; /* Font Awesome "caret-down" */
 }
+=======
+}
+.filter-card .filter-list {
+    overflow: auto;
+    max-height: 19rem;
+    padding: 12px;
+}
+>>>>>>> 04a096cefd956ed8d5f5a9841a8da4ad0a300d9c
 
 
 @media (max-width: 380px) {
