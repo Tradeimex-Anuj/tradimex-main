@@ -24,7 +24,7 @@
     <section class="container-fluid padding-tb bg-green">
         <div class="text-content text-center">
             <h1 class="mb-3" style="color: rgb(30 41 59);">
-                {{$role}} Data of 
+                {{$role}} Data of
             </h1>
             <p class="mb-3 text-center fs-6" style="color: rgb(71 85 105);">
                 Monitor business competitions through detailed rubber import data of Bangladesh.
@@ -33,29 +33,21 @@
             </p>
         </div>
         <div class="container">
-<<<<<<< HEAD
-            <form method="GET" action="{{ url('/search-live') }}" enctype="multipart/form-data">
-=======
             <form method="GET"  action="{{ route('product.list') }}" enctype="multipart/form-data">
->>>>>>> 04a096cefd956ed8d5f5a9841a8da4ad0a300d9c
                 <div class="mb-4 mt-4 flex justify-content-center align-items-center">
                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group" name = "type">
                         <input name="type" type="radio" class="btn-check" value="data" id="btnradio1" autocomplete="off" checked>
                         <label class="btn btn-outline-primary type-btn" for="btnradio1">Data</label>
-                      
+
                         <input name="type" type="radio" class="btn-check" value="company" id="btnradio2" autocomplete="off">
                         <label class="btn btn-outline-primary type-btn" for="btnradio2">Company</label>
                     </div>
                 </div>
-                
+
                 <div class="row bg-white" style="border-radius: 1rem;">
-<<<<<<< HEAD
                     <div class="searchbox col-sm-2 col-md-2 col-lg-2">
-=======
-                    <div class="searchbox col-sm-2 col-md-2 col-lg-2"> 
->>>>>>> 04a096cefd956ed8d5f5a9841a8da4ad0a300d9c
                         <select class="form-control" style="border: 0px transparent !important;" name="country">
-                            <option class="form-control" value="">Select Country</option> 
+                            <option class="form-control" value="">Select Country</option>
                             <!--<option class="form-control" value="Asia">Asia</option> -->
                             <!--<option class="form-control" value="Bangladesh">Bangladesh</option>-->
                             <!--<option class="form-control" value="China">China</option>-->
@@ -113,18 +105,6 @@
                             <!--<option class="form-control" value="Guatemala">Guatemala</option>-->
                             <!--<option class="form-control" value="Honduras">Honduras</option>-->
                             <!--<option class="form-control" value="Mexico">Mexico</option>-->
-<<<<<<< HEAD
-                            <!--<option class="form-control" value="Panama">Panama</option>-->
-                            <option class="form-control" value="US">US</option>
-                            <!--<option class="form-control" value="Argentina">Argentina</option>-->
-                            <!--<option class="form-control" value="Bolivia">Bolivia</option>-->
-                            <!--<option class="form-control" value="Brazil">Brazil</option>-->
-                            <!--<option class="form-control" value="Chile">Chile</option>-->
-                            <!--<option class="form-control" value="Colombia">Colombia</option>-->
-                            <!--<option class="form-control" value="Ecuador">Ecuador</option>-->
-                            <!--<option class="form-control" value="Guyana">Guyana</option>-->
-                            <!--<option class="form-control" value="Paraguay">Paraguay</option>-->
-=======
                             <option class="form-control" value="Panama">Panama</option>
                             <option class="form-control" value="US">US</option>
                             <option class="form-control" value="Argentina">Argentina</option>
@@ -135,7 +115,6 @@
                             <option class="form-control" value="Ecuador">Ecuador</option>
                             <!--<option class="form-control" value="Guyana">Guyana</option>-->
                             <option class="form-control" value="Paraguay">Paraguay</option>
->>>>>>> 04a096cefd956ed8d5f5a9841a8da4ad0a300d9c
                             <!--<option class="form-control" value="Peru">Peru</option>-->
                             <!--<option class="form-control" value="Uruguay">Uruguay</option>-->
                             <!--<option class="form-control" value="Venezuela">Venezuela</option> -->
@@ -177,25 +156,21 @@
                             <!--<option class="form-control" value="Australia">Australia</option>-->
                             <!--<option class="form-control" value="Fiji">Fiji</option>-->
                             <!--<option class="form-control" value="New Zealand">New Zealand</option>-->
-<<<<<<< HEAD
                         </select>
-=======
-                        </select> 
->>>>>>> 04a096cefd956ed8d5f5a9841a8da4ad0a300d9c
                     </div>
-                    <div class="searchbox col-sm-2 col-md-2 col-lg-2"> 
+                    <div class="searchbox col-sm-2 col-md-2 col-lg-2">
                         <select class="form-control" name="role" style="border: 0px transparent !important;">
                             <option class="form-control" value="import">Import</option>
                             <option class="form-control" value="export">Export</option>
-                        </select> 
+                        </select>
                     </div>
-                    <div class="searchbox col-sm-3 col-md-3 col-lg-3"> 
+                    <div class="searchbox col-sm-3 col-md-3 col-lg-3">
                         <input type="text" placeholder="Description" class="form-control" name="description">
                     </div>
-                    <div class="searchbox col-sm-2 col-md-2 col-lg-2"> 
-                        <input type="text" placeholder="HS Code" class="form-control" name="hs_code"> 
+                    <div class="searchbox col-sm-2 col-md-2 col-lg-2">
+                        <input type="text" placeholder="HS Code" class="form-control" name="hs_code">
                     </div>
-                    <div class="searchbox col-sm-3 col-md-3 col-lg-3"> 
+                    <div class="searchbox col-sm-3 col-md-3 col-lg-3">
                         <button type="submit"  class="ybtn ybtn-header-color" style="width: 100%;text-align: center;padding: 18px 0px 18px 0px;">
                             Search
                         </button>
@@ -204,22 +179,13 @@
             </form>
         </div>
     </section>
-<<<<<<< HEAD
-
-=======
-  
->>>>>>> 04a096cefd956ed8d5f5a9841a8da4ad0a300d9c
     {{-- Result Table --}}
     @if($country == "US")
-        @include('frontend.livedata.US.USTable')  
+        @include('frontend.livedata.US.USTable')
     @elseif($country == 'Austria')
         @include('frontend.livedata.austria.austriaTable')
     @elseif($country == 'Ecuador')
         @include('frontend.livedata.Ecuador.EcTable')
-<<<<<<< HEAD
-    @endif
-   
-=======
     @elseif($country == 'Argentina')
         @include('frontend.livedata.Argentina.argentinaTable')
     @elseif($country == 'Panama')
@@ -229,8 +195,7 @@
     @elseif($country == 'Chile')
         @include('frontend.livedata.Chile.chileTable')
     @endif
-    
->>>>>>> 04a096cefd956ed8d5f5a9841a8da4ad0a300d9c
+
 
     @include('frontend.tab_inc')
     @include('frontend.footer')

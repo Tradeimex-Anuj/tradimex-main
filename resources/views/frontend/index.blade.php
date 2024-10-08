@@ -37,7 +37,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"
         integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        
+
 
     <style>
         @media screen and (max-width: 1024px) {
@@ -77,7 +77,7 @@
 </head>
 
 <body>
-     @include('frontend.header') 
+     @include('frontend.header')
      <!-- Overview section -->
     <div class="container-fluid padding-tb bg-bluish">
         <div class="container">
@@ -87,7 +87,7 @@
                         <div class="text-uppercase">
                             <h1 class="gradient-h2"> ACCESS GLOBAL TRADE DATA OF MORE THAN 80 COUNTRIES </h1>
                         </div>
-                        <p class="text-black" style="color:#fff"> 
+                        <p class="text-black" style="color:#fff">
                             TradeImeX is a leading global trade data provider,
                             offering comprehensive import-export data and trade data information for more than 80
                             countries and across 6 continents. Our platform provides valuable insights and information
@@ -99,18 +99,18 @@
                             Statistical and Bill of Lading databases. according to the adaptations required by your
                             trade customizations. Whether you are looking to expand your market, identify potential
                             partners, or stay updated with the latest trade trends, TradeImeX is here to help you
-                            navigate the world of international trade with ease and confidence. 
+                            navigate the world of international trade with ease and confidence.
                         </p>
-                        <div class="btn-holder"> 
+                        <div class="btn-holder">
                             <!--<a href="why-choose-us" class="ybtn ybtn-header-color">WHY CHOOSE US?</a>-->
                             <a href="why-choose-us" class="ybtn ybtn-white ybtn-shadow">WHY CHOOSE US?</a>
-                            <a href="contact-us" class="ybtn ybtn-header-color">Contact Us</a> 
+                            <a href="contact-us" class="ybtn ybtn-header-color">Contact Us</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12">
-                    <div class="container-globe globe-responsive"> 
-                        <canvas class="canvas-1"></canvas> 
+                    <div class="container-globe globe-responsive">
+                        <canvas class="canvas-1"></canvas>
                     </div>
                 </div>
             </div>
@@ -126,8 +126,8 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 kp-width">
                     <div class="card-content cdh-16 bg-none">
-                        <div class="icon"> 
-                            <img src="public/frontend/image/img/reliable-data.png" width="25%" style="padding: 0px 0px 0px 10px;"> 
+                        <div class="icon">
+                            <img src="public/frontend/image/img/reliable-data.png" width="25%" style="padding: 0px 0px 0px 10px;">
                         </div>
                         <div class="head">
                             <h3 class="text-white">100% RELIABLE DATA</h3>
@@ -135,7 +135,7 @@
                         <p class="text-white"> We promise to offer a 100% trustworthy database.
                             We have acquired detailed and accurate shipping information from databases of more than 80
                             nations and across 6 continents. With TradeImeX you get completely reliable data for your
-                            business so that you can stay ahead. 
+                            business so that you can stay ahead.
                         </p>
                     </div>
                 </div>
@@ -174,19 +174,19 @@
                         </div>
                         <p class="text-white"> We offer services at extremely affordable rates. TradeImeX offers
                             comprehensive packages with a range of features and benefits that can streamline your import
-                            and export business in the world of global trade. 
+                            and export business in the world of global trade.
                         </p>
                     </div>
                 </div>
             </div>
         </div>
-    </div> 
-    
+    </div>
+
     <!-- Search Live Import Export -->
     <!-- <div class="container-fluid padding-tb bg-img"> <div class="text-content text-center bg-color"> <h2 style="font-size: 38px;"> Search Import Export Live Data </h2> </div> <div class="container"> <div class="row bg-green" style="border-radius: 1rem;"> <div class="searchbox col-sm-2 col-md-2 col-lg-2"> <select class="form-control" style="border: 0px transparent !important;"> <option class="form-control" value="">Select Country</option> Asia <option class="form-control" value="">Bangladesh</option> <option class="form-control" value="">China</option> <option class="form-control" value="">Egypt</option> <option class="form-control" value="">Indonesia</option> <option class="form-control" value="">Iran</option> <option class="form-control" value="">Iraq</option> <option class="form-control" value="">Japan</option> <option class="form-control" value="">Kazakhstan</option> <option class="form-control" value="">Kuwait</option> <option class="form-control" value="">Malaysia</option> <option class="form-control" value="">Pakistan</option> <option class="form-control" value="">Philippines</option> <option class="form-control" value="">Qatar</option> <option class="form-control" value="">Saudi Arabia</option> <option class="form-control" value="">Singapore</option> <option class="form-control" value="">South Korea</option> <option class="form-control" value="">Sri Lanka</option> <option class="form-control" value="">Taiwan</option> <option class="form-control" value="">Thailand</option> <option class="form-control" value="">Turkey</option> <option class="form-control" value="">UAE</option> <option class="form-control" value="">Ukraine</option> <option class="form-control" value="">Uzbekistan</option> <option class="form-control" value="">Vietnam</option> Africa <option class="form-control" value="">Botswana</option> <option class="form-control" value="">Cameroon</option> <option class="form-control" value="">Central Africa</option> <option class="form-control" value="">Chad</option> <option class="form-control" value="">DR Congo</option> <option class="form-control" value="">Ethiopia</option> <option class="form-control" value="">Ghana</option> <option class="form-control" value="">Ivory Coast</option> <option class="form-control" value="">Kenya</option> <option class="form-control" value="">Lesotho</option> <option class="form-control" value="">Liberia</option> <option class="form-control" value="">Malawi</option> <option class="form-control" value="">Namibia</option> <option class="form-control" value="">Niger</option> <option class="form-control" value="">Nigeria</option> <option class="form-control" value="">Sao Tome</option> <option class="form-control" value="">Senegal</option> <option class="form-control" value="">Sierra Leone</option> <option class="form-control" value="">South Africa</option> <option class="form-control" value="">Tanzamia</option> <option class="form-control" value="">Togo</option> <option class="form-control" value="">Uganda</option> <option class="form-control" value="">Zambia</option> <option class="form-control" value="">Zimbabwe</option> America <option class="form-control" value="">Canada</option> <option class="form-control" value="">Costa Rica</option> <option class="form-control" value="">El Salvador</option> <option class="form-control" value="">Guatemala</option> <option class="form-control" value="">Honduras</option> <option class="form-control" value="">Mexico</option> <option class="form-control" value="">Panama</option> <option class="form-control" value="">US</option> <option class="form-control" value="">Argentina</option> <option class="form-control" value="">Bolivia</option> <option class="form-control" value="">Brazil</option> <option class="form-control" value="">Chile</option> <option class="form-control" value="">Colombia</option> <option class="form-control" value="">Ecuador</option> <option class="form-control" value="">Guyana</option> <option class="form-control" value="">Paraguay</option> <option class="form-control" value="">Peru</option> <option class="form-control" value="">Uruguay</option> <option class="form-control" value="">Venezuela</option> Europe <option class="form-control" value="">Austria</option> <option class="form-control" value="">Belgium</option> <option class="form-control" value="">Bulgaria</option> <option class="form-control" value="">Croatia</option> <option class="form-control" value="">Cyprus</option> <option class="form-control" value="">Czech</option> <option class="form-control" value="">Denmark</option> <option class="form-control" value="">Estonia</option> <option class="form-control" value="">Finland</option> <option class="form-control" value="">France</option> <option class="form-control" value="">Germany</option> <option class="form-control" value="">Greece</option> <option class="form-control" value="">Hungary</option> <option class="form-control" value="">Ireland</option> <option class="form-control" value="">Italy</option> <option class="form-control" value="">Kazakhstan</option> <option class="form-control" value="">Kosovo</option> <option class="form-control" value="">Latvia</option> <option class="form-control" value="">Lithuania</option> <option class="form-control" value="">Luxembourg</option> <option class="form-control" value="">Malta</option> <option class="form-control" value="">Moldova</option> <option class="form-control" value="">Netherlands</option> <option class="form-control" value="">Poland</option> <option class="form-control" value="">Portugal</option> <option class="form-control" value="">Russia</option> <option class="form-control" value="">Romania</option> <option class="form-control" value="">Slovenia</option> <option class="form-control" value="">Spain</option> <option class="form-control" value="">Sweden</option> <option class="form-control" value="">Uk</option> <option class="form-control" value="">Ukraine</option> <option class="form-control" value="">Uzbekistan</option> Oceania <option class="form-control" value="">Australia</option> <option class="form-control" value="">Fiji</option> <option class="form-control" value="">New Zealand</option> </select> </div> <div class="searchbox col-sm-2 col-md-2 col-lg-2"> <select class="form-control" style="border: 0px transparent !important;"> <option class="form-control" value="">Import</option> <option class="form-control" value="">Export</option> </select> </div> <div class="searchbox col-sm-3 col-md-3 col-lg-3"> <input type="text" placeholder="Description" class="form-control"> </div> <div class="searchbox col-sm-2 col-md-2 col-lg-2"> <input type="text" placeholder="HS Code" class="form-control"> </div> <div class="searchbox col-sm-3 col-md-3 col-lg-3"> <a class="ybtn ybtn-header-color" style="width: 100%;text-align: center;padding: 18px 0px 18px 0px;"> Search </a> </div> </div> </div> </div> -->
     <!-- Data -->
-    
-    <div class="container-fluid bg-white padding-tb"> 
+
+    <div class="container-fluid bg-white padding-tb">
         <!-- Import Export Overview -->
         <div class="container">
             <div class="text-content"> <span>Data</span>
@@ -198,15 +198,15 @@
                     informed decisions and stay ahead of the competition. TradeImeX stands out from other platforms due
                     to its vast database, which covers millions of companies and products across over 80 countries. With
                     data collected from various sources such as shipping manifests, customs records, and trade reports,
-                    TradeImeX offers unparalleled accuracy and comprehensiveness. 
+                    TradeImeX offers unparalleled accuracy and comprehensiveness.
                 </p>
-            </div> 
+            </div>
             <!-- Key Points -->
             <div class="row">
                 <div class="text-content">
                     <h3>Discover new possibilities in global trade with our Export-Import Data</h3>
                     <p> Find out how TradeImeX enables you to seize these possibilities and make the most of them on the
-                        global market with our exclusive export-import data. 
+                        global market with our exclusive export-import data.
                     </p>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
@@ -218,21 +218,21 @@
                         </div>
                         <p> TradeImeX provides exclusive and easy-to-access global trade data. With our exclusive trade
                             data, businesses can evaluate the flow of goods across borders, monitor imports and exports,
-                            and gain valuable insights into market patterns and shifts. 
+                            and gain valuable insights into market patterns and shifts.
                         </p>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
                     <div class="card-content cdh-20">
-                        <div class="icon"> 
-                            <img src="public/frontend/image/img/intelligence-trade-data.png" width="25%" style="padding: 0px 0px 0px 10px;"> 
+                        <div class="icon">
+                            <img src="public/frontend/image/img/intelligence-trade-data.png" width="25%" style="padding: 0px 0px 0px 10px;">
                         </div>
                         <div class="head">
                             <h3>Trade Intelligence Data Platform</h3>
                         </div>
                         <p> TradeImeX provides enterprises across many industries and regions with unparalleled access
                             to global trade data. TradeImeX is revolutionizing trade intelligence by providing
-                            businesses with the data insights they need to succeed in the global marketplace. 
+                            businesses with the data insights they need to succeed in the global marketplace.
                         </p>
                     </div>
                 </div>
@@ -245,14 +245,14 @@
                         </div>
                         <p> You can network with a variety of companies, firms, trade partners, manufacturers, and
                             traders by utilizing our unique and personalized global trade data sets. This will help you
-                            grow your business to previously unimaginable heights. 
+                            grow your business to previously unimaginable heights.
                         </p>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
                     <div class="card-content cdh-20">
                         <div class="icon"> <img src="public/frontend/image/img/data-source.png" width="25%"
-                                style="padding: 0px 0px 0px 10px;"> 
+                                style="padding: 0px 0px 0px 10px;">
                         </div>
                         <div class="head">
                             <h3>Data Sourcing and accuracy</h3>
@@ -265,8 +265,8 @@
                 </div>
             </div>
         </div>
-    </div> 
-    <!-- End of import export data --> 
+    </div>
+    <!-- End of import export data -->
     <!-- Product Tab -->
     <div class="container-fluid bg-dark-custom padding-tb">
         <div class="container">
@@ -274,9 +274,9 @@
                     onclick="openLink(event, 'custom')"> <i class="fa-solid fa-file-pen fa-lg"></i> &nbsp;Custom Data
                 </button> <button class="product-tablink" id="btn-stat" onclick="openLink(event, 'stat')"> <i
                         class="fa-solid fa-magnifying-glass-chart fa-lg"></i> &nbsp;Statistical Data </button> <button class="product-tablink" id="btn-bl" onclick="openLink(event, 'bl')"> <i
-                        class="fa-solid fa-chart-simple fa-lg"></i> &nbsp;B/L Data </button> 
+                        class="fa-solid fa-chart-simple fa-lg"></i> &nbsp;B/L Data </button>
             </div>
-            
+
             <!-- Custom -->
             <div id="custom" class="product-tabcontent bg-dark-custom" style="display:flex">
                 <div class="row">
@@ -315,7 +315,7 @@
                         </div>
                     </div>
                 </div>
-            </div> 
+            </div>
             <!-- Stat -->
             <div id="stat" class="product-tabcontent bg-dark-custom">
                 <div class="row">
@@ -341,7 +341,7 @@
                                 style="width: 100% !important" alt="statistical-data | TradeImeX"> </div>
                     </div>
                 </div>
-            </div> 
+            </div>
             <!-- BL -->
             <div id="bl" class="product-tabcontent bg-dark-custom">
                 <div class="row">
@@ -366,15 +366,15 @@
                     </div>
                     <div class="col-lg-6 col-md-12" style="display: flex;align-items: center;">
                         <div class="data-img"> <img src="public/frontend/image/img/Bill of Ladding Database.png"
-                                style="width: 100% !important" alt="bl-data | TradeImeX"> 
+                                style="width: 100% !important" alt="bl-data | TradeImeX">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="clearfix"></div>
         </div>
-    </div> 
-    
+    </div>
+
     <!-- Country covered -->
     <div class="container-fluid bg-bluish padding-tb">
         <div class="container">
@@ -395,9 +395,9 @@
                 <div class="col-xs-12 text-center">
                     <div class="text-content">
                         <h3 class="text-start">IMPORT-EXPORT DATA PROVIDER FOR GLOBAL TRADE INTELLIGENCE</h3>
-                        <p class="lh-8"> 
+                        <p class="lh-8">
                             TradeImeX provides firms from all sectors and locations with access to
-                            international trade data, exceeding your expectations. 
+                            international trade data, exceeding your expectations.
                         </p>
                         <li class="list">IDENTIFY WORLDWIDE IMPORTERS AND EXPORTERS</li>
                         <li class="list">GET THE TRADED PRICE OF IMPORT-EXPORT COMMODITIES</li>
@@ -408,17 +408,17 @@
                 </div>
             </div>
         </div>
-    </div> 
-    
+    </div>
+
     <!-- Countries List -->
     <div class="container-fluid bg-dark-custom padding-tb">
         <div class="container">
-            <div class="tab"> 
-                <button class="tablinks active-1" onmouseover="openCity(event, 'Asia')">Asia</button> 
-                <button class="tablinks" onmouseover="openCity(event, 'Africa')">Africa</button> 
-                <button class="tablinks" onmouseover="openCity(event, 'America')">America</button> 
-                <button class="tablinks" onmouseover="openCity(event, 'Europe')">Europe</button> 
-                <button class="tablinks" onmouseover="openCity(event, 'Oceania')">Oceania</button> 
+            <div class="tab">
+                <button class="tablinks active-1" onmouseover="openCity(event, 'Asia')">Asia</button>
+                <button class="tablinks" onmouseover="openCity(event, 'Africa')">Africa</button>
+                <button class="tablinks" onmouseover="openCity(event, 'America')">America</button>
+                <button class="tablinks" onmouseover="openCity(event, 'Europe')">Europe</button>
+                <button class="tablinks" onmouseover="openCity(event, 'Oceania')">Oceania</button>
             </div>
             <!-- Asia AS-24 -->
             <div id="Asia" class="tabcontent" style="display: block !important;">
@@ -427,7 +427,7 @@
                         <h4 class="text-center text-white" style="font-size: 18px;">Asia</h4>
                     </div>
                     <div class="row">
-                        <div class="col-sm-4 col-md-3 col-lg-3 Flag"> 
+                        <div class="col-sm-4 col-md-3 col-lg-3 Flag">
                             <img src="public/frontend/image/flags/bangladesh.png" alt="Bangladesh Import Export Data">
                             <br>
                             @foreach ($countrydata as $country)
@@ -439,8 +439,8 @@
                                 @endif
                             @endforeach
                         </div>
-                        <div class="col-sm-4 col-md-3 col-lg-3 Flag"> 
-                            <img src="public/frontend/image/flags/china_rectangular_icon_with_shadow_64.png" alt="China Import Export Data"> 
+                        <div class="col-sm-4 col-md-3 col-lg-3 Flag">
+                            <img src="public/frontend/image/flags/china_rectangular_icon_with_shadow_64.png" alt="China Import Export Data">
                             <br>
                             @foreach ($countrydata as $country)
                                 @if ($country->country == 'China' && $country->Datatype == 'import')
@@ -696,7 +696,7 @@
                         </div>
                     </div>
                 </div>
-            </div> 
+            </div>
             <!-- Africa AF-24 -->
             <div id="Africa" class="tabcontent">
                 <div class="container" style="padding-left: 10%;">
@@ -973,7 +973,7 @@
                         </div>
                     </div>
                 </div>
-            </div> 
+            </div>
             <!-- America NA-8 && SA-11 -->
             <div id="America" class="tabcontent"> <!-- North America NA-8 -->
                 <div class="container" style="padding-left: 10%;">
@@ -1211,7 +1211,7 @@
                         </div>
                     </div>
                 </div>
-            </div> 
+            </div>
             <!-- Europe EU-34-->
             <div id="Europe" class="tabcontent">
                 <div class="container" style="padding-left: 10%;">
@@ -1595,7 +1595,7 @@
                         </div>
                     </div>
                 </div>
-            </div> 
+            </div>
             <!-- Oceania OC-3 -->
             <div id="Oceania" class="tabcontent">
                 <div class="text-content">
@@ -1646,14 +1646,30 @@
                     class="fa-solid fa-square" style="color: #00ca6f;"></i>
                 <p class="text-black text-white">&nbsp;&nbsp;Customs Data</p>
             </div>
-            <div class="flex text-center" style="align-items: baseline;padding: 2px 15px 2px 4px;"> 
+            <div class="flex text-center" style="align-items: baseline;padding: 2px 15px 2px 4px;">
                 <i class="fa-solid fa-square" style="color: #fff;"></i>
                 <p class="text-black text-white">&nbsp;&nbsp;Statistical/BL Data</p>
             </div>
         </div>
-    </div> 
-    <!-- End Of Countries List --> 
-    
+    </div>
+    <!-- End Of Countries List -->
+
+    <div class="container-fluid">
+        <div class="container pdt-2 pdb-2">
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <div class="text-content">
+                        <h2>
+                            What Metrics do we cover in our Global Trade Database
+                        </h2>
+                    </div>
+                    <div></div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Client floating list -->
     <div class="container-fluid bg-bluish" style="padding-top: 8%;padding-bottom: 0.5%;">
         <div class="container">
@@ -1669,7 +1685,7 @@
                             Mahindra, Deloitte, Nikon, Tata, Samsung, Aditya Birla, and many others, rely on our
                             services and databases. It is now your opportunity to grow your company by obtaining our
                             exclusive global trade database. So, hurry and unlock the world of global trade today with
-                            TradeImeX! 
+                            TradeImeX!
                         </p>
                     </div>
                 </div>
@@ -1887,9 +1903,9 @@
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
     <!-- End of Client floating list -->
-    
+
     <!-- Blog slider -->
     <div class="container-fluid bg-dark-custom pdt-2 pdb-2">
         <div class="container">
@@ -1905,7 +1921,7 @@
                     our community, and sharing valuable insights with your network. </p>
             </div>
         </div>
-    </div> 
+    </div>
     <!-- Blog Cards -->
     <div class="container pdt-2">
         @if (session('blogerror'))
@@ -1922,7 +1938,7 @@
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="blog_card">
                                 <div class="blog_card_image">
-                                     <a href="https://tradeimex.in/blogs/{{ $post->title_slug }}"> 
+                                     <a href="https://tradeimex.in/blogs/{{ $post->title_slug }}">
                                         <img src="https://tradeimex.in/blogs/{{ $post->image_big }}" alt="">
                                     </a>
                                 </div>
@@ -1932,23 +1948,23 @@
                                     </a>
                                     <p>{{ Str::limit($post->summary, 150) }}</p>
                                 </div>
-                                <div class="container" style="margin-bottom: 1rem;"> 
+                                <div class="container" style="margin-bottom: 1rem;">
                                     <a class="text-hover" href="https://tradeimex.in/blogs/{{ $post->title_slug }}">
                                         <h6>Read More</h6>
-                                    </a> 
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     @endforeach
                 </div>
             @endif
-    </div> 
-    
+    </div>
+
     <!-- Last Contact Us -->
     @include('frontend.tab_inc')
     @include('frontend.footer')
-    @include('frontend.script') 
-    
+    @include('frontend.script')
+
     <script src="frontend/js/slider2.js" defer></script>
     <!-- Flag JS -->
     <script>
@@ -1979,15 +1995,15 @@
             }
             document.getElementById(animName).style.display = "flex";
             evt.currentTarget.className += " active-1"
-        } 
-        // autoplay tab 
-        var currentIndex = 0; 
-        // Initialize the index of the active tab var intervalId; 
-        // Variable to store the interval ID var progressBarInterval; 
-        // Variable to store the progress bar interval ID function openLinkAutomatically() { var x, tablinks; x = document.getElementsByClassName("product-tabcontent"); tablinks = document.getElementsByClassName("product-tablink"); 
-        // Hide all tabs for (var i = 0; i < x.length; i++) { x[i].style.display = "none"; tablinks[i].className = tablinks[i].className.replace(" active-1", ""); } 
-        // Show the next tab currentIndex = (currentIndex + 1) % x.length; x[currentIndex].style.display = "flex"; tablinks[currentIndex].className += " active-1"; } function startAutoPlay() { 
-            // Check if the screen width is greater than 840 pixels (adjust as needed) if (window.innerWidth > 840) { intervalId = setInterval(openLinkAutomatically, 5000); // Adjust the interval as needed // Start progress bar var progressBar = document.getElementById("progress-bar"); var width = 1; // Initial width progressBarInterval = setInterval(function () { if (width >= 100) { clearInterval(progressBarInterval); } else { width++; progressBar.style.width = width + "%"; } }, 30); // Adjust the interval as needed } } function stopAutoPlay() { clearInterval(intervalId); clearInterval(progressBarInterval); // Reset progress bar var progressBar = document.getElementById("progress-bar"); progressBar.style.width = "0%"; } // Set interval to change tabs automatically if the screen size is greater than 840 pixels startAutoPlay(); // Call it initially // Function to handle window resize event function handleResize() { if (window.innerWidth <= 840) { stopAutoPlay(); } else { startAutoPlay(); } } // Add event listener for window resize event window.addEventListener("resize", handleResize); // For Tab Containers // Add event listeners for stopping on hover document.getElementById("custom").addEventListener("mouseenter", stopAutoPlay); document.getElementById("custom").addEventListener("mouseleave", startAutoPlay); // Add event listeners for stopping on hover document.getElementById("stat").addEventListener("mouseenter", stopAutoPlay); document.getElementById("stat").addEventListener("mouseleave", startAutoPlay); // Add event listeners for stopping on hover document.getElementById("bl").addEventListener("mouseenter", stopAutoPlay); document.getElementById("bl").addEventListener("mouseleave", startAutoPlay); // For Tab Buttons // Add event listeners for stopping on hover document.getElementById("btn-custom").addEventListener("mouseenter", stopAutoPlay); document.getElementById("btn-custom").addEventListener("mouseleave", startAutoPlay); // Add event listeners for stopping on hover document.getElementById("btn-stat").addEventListener("mouseenter", stopAutoPlay); document.getElementById("btn-stat").addEventListener("mouseleave", startAutoPlay); // Add event listeners for stopping on hover document.getElementById("btn-bl").addEventListener("mouseenter", stopAutoPlay); document.getElementById("btn-bl").addEventListener("mouseleave", startAutoPlay); 
+        }
+        // autoplay tab
+        var currentIndex = 0;
+        // Initialize the index of the active tab var intervalId;
+        // Variable to store the interval ID var progressBarInterval;
+        // Variable to store the progress bar interval ID function openLinkAutomatically() { var x, tablinks; x = document.getElementsByClassName("product-tabcontent"); tablinks = document.getElementsByClassName("product-tablink");
+        // Hide all tabs for (var i = 0; i < x.length; i++) { x[i].style.display = "none"; tablinks[i].className = tablinks[i].className.replace(" active-1", ""); }
+        // Show the next tab currentIndex = (currentIndex + 1) % x.length; x[currentIndex].style.display = "flex"; tablinks[currentIndex].className += " active-1"; } function startAutoPlay() {
+            // Check if the screen width is greater than 840 pixels (adjust as needed) if (window.innerWidth > 840) { intervalId = setInterval(openLinkAutomatically, 5000); // Adjust the interval as needed // Start progress bar var progressBar = document.getElementById("progress-bar"); var width = 1; // Initial width progressBarInterval = setInterval(function () { if (width >= 100) { clearInterval(progressBarInterval); } else { width++; progressBar.style.width = width + "%"; } }, 30); // Adjust the interval as needed } } function stopAutoPlay() { clearInterval(intervalId); clearInterval(progressBarInterval); // Reset progress bar var progressBar = document.getElementById("progress-bar"); progressBar.style.width = "0%"; } // Set interval to change tabs automatically if the screen size is greater than 840 pixels startAutoPlay(); // Call it initially // Function to handle window resize event function handleResize() { if (window.innerWidth <= 840) { stopAutoPlay(); } else { startAutoPlay(); } } // Add event listener for window resize event window.addEventListener("resize", handleResize); // For Tab Containers // Add event listeners for stopping on hover document.getElementById("custom").addEventListener("mouseenter", stopAutoPlay); document.getElementById("custom").addEventListener("mouseleave", startAutoPlay); // Add event listeners for stopping on hover document.getElementById("stat").addEventListener("mouseenter", stopAutoPlay); document.getElementById("stat").addEventListener("mouseleave", startAutoPlay); // Add event listeners for stopping on hover document.getElementById("bl").addEventListener("mouseenter", stopAutoPlay); document.getElementById("bl").addEventListener("mouseleave", startAutoPlay); // For Tab Buttons // Add event listeners for stopping on hover document.getElementById("btn-custom").addEventListener("mouseenter", stopAutoPlay); document.getElementById("btn-custom").addEventListener("mouseleave", startAutoPlay); // Add event listeners for stopping on hover document.getElementById("btn-stat").addEventListener("mouseenter", stopAutoPlay); document.getElementById("btn-stat").addEventListener("mouseleave", startAutoPlay); // Add event listeners for stopping on hover document.getElementById("btn-bl").addEventListener("mouseenter", stopAutoPlay); document.getElementById("btn-bl").addEventListener("mouseleave", startAutoPlay);
     </script> <!-- Google Tag Manager (noscript) --> <noscript> <iframe
             src=https://www.googletagmanager.com/ns.html?id=GTM-PVH9BTS height="0" width="0"
             style="display:none;visibility:hidden"></iframe> </noscript> <!-- End Google Tag Manager (noscript) -->
